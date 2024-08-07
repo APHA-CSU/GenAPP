@@ -1,9 +1,9 @@
 # GenAPP
-GenAPP (Genomics for Animal &amp; Plant Pathogens) is a bioinformatics dashboard for GAPDC2. 
-It makes use of microservices for genome and data analysis. This is the core application. 
+GenAPP (Genomics for Animal &amp; Plant Pathogens) is a bioinformatics dashboard for GAPDC2.
+It makes use of microservices for genome and data analysis. This is the core application.
 
 ## Dependencies
-GenAPP is a Spring Boot web application that depends on the Spring Boot framework and is written in Java, Groovy and React. 
+GenAPP is a Spring Boot web application that depends on the Spring Boot framework and is written in Java, Groovy and React.
 To contribute to GenAPP, you must have a Java Development Kit (JDK) installed. I recommend using SDKMAN! to handle this for Unix systems.
 In the terminal, run:
 ```
@@ -21,7 +21,7 @@ Now, install your JDK. This should install the default latest version:
 sdk install java
 ```
 For reference, the latest version at time of writing this is 22.0.1. It is important to keep your development environment & all dependencies up-to-date.
-The project uses Maven as a build automation & management tool. To install Maven, run: 	
+The project uses Maven as a build automation & management tool. To install Maven, run:  
 ```
 sdk install maven
 ```
