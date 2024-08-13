@@ -3,6 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+megalinter-reports/
 
 ## REACT FRONT END NODE MODULES ##
 /src/main/resources/front-end/node_modules
