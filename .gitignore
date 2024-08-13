@@ -4,6 +4,34 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+## REACT FRONT END NODE MODULES ##
+/src/main/resources/front-end/node_modules
+
+## REACT FRONT END LOGS ##
+/src/main/resources/front-end/logs
+/src/main/resources/front-end/*.log
+/src/main/resources/front-end/npm-debug.log*
+/src/main/resources/front-end/yarn-debug.log*
+/src/main/resources/front-end/yarn-error.log*
+/src/main/resources/front-end/pnpm-debug.log*
+/src/main/resources/front-end/lerna-debug.log*
+
+## REACT FRONT END DIST ##
+/src/main/resources/front-end/dist
+/src/main/resources/front-end/dist-ssr
+/src/main/resources/front-end/*.local
+
+## REACT FRONT END EDITOR DIRECTORIES ##
+/src/main/resources/front-end/.vscode/*
+!/src/main/resources/front-end/.vscode/extensions.json
+/src/main/resources/front-end/.idea
+/src/main/resources/front-end/.DS_Store
+/src/main/resources/front-end/*.suo
+/src/main/resources/front-end/*.ntvs*
+/src/main/resources/front-end/*.njsproj
+/src/main/resources/front-end/*.sln
+/src/main/resources/front-end/*.sw?
+
 ### STS ###
 .apt_generated
 .classpath
