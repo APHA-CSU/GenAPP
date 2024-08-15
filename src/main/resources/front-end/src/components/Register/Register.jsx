@@ -7,19 +7,18 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Grid from "@mui/material/Grid";
 
-//Validate username & password
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+//Validate email & password
+const EMAIL_REGEX = /^[a-z]{2,}(-[a-z]{2,})?(\.[a-z]{2,}(-[a-z]{2,})?)?@[a-z]{2,}\.[a-z]{2,}(\.[a-z]{2,})?$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = "/register";
 
 const Register = () => {
-  const userRef = useRef();
+  const emailRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
 
-  const [validName, setValidName] = useState(false);
-  const [userFocus, setUserFocus] = useState(false);
+  const [validEmail, setValidEmail] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
 
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
@@ -32,15 +31,15 @@ const Register = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  //Focus on user input when component loads
+  //Focus on email input when component loads
   useEffect(() => {
-    userRef.current.focus();
+    emailRef.current.focus();
   }, []);
 
-  //Validate user name by testing against USER_REGEX
+  //Validate email name by testing against EMAIL_REGEX
   useEffect(() => {
-    setValidName(USER_REGEX.test(user));
-  }, [user]);
+    setValidEmail(EMAIL_REGEX.test(email));
+  }, [email]);
 
   //Validate pwd by testing against PWD_REGEX
   useEffect(() => {
@@ -48,10 +47,10 @@ const Register = () => {
     setValidMatch(pwd === matchPwd);
   }, [pwd, matchPwd]);
 
-  //Clear out error message when user changes `user`,`pwd` or `matchPwd` as user has read error message & adjusting to make changes
+  //Clear out error message when email changes `email`,`pwd` or `matchPwd` as email has read error message & adjusting to make changes
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd, matchPwd]);
+  }, [email, pwd, matchPwd]);
 
   return (
     <div>
