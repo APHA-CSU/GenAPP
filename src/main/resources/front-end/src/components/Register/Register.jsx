@@ -36,7 +36,7 @@ const Register = () => {
     emailRef.current.focus();
   }, []);
 
-  //Validate email name by testing against EMAIL_REGEX
+  //Validate email by testing against EMAIL_REGEX
   useEffect(() => {
     setValidEmail(EMAIL_REGEX.test(email));
   }, [email]);
@@ -47,7 +47,7 @@ const Register = () => {
     setValidMatch(pwd === matchPwd);
   }, [pwd, matchPwd]);
 
-  //Clear out error message when email changes `email`,`pwd` or `matchPwd` as email has read error message & adjusting to make changes
+  //Clear error message when user changes `email`,`pwd` or `matchPwd` as user has read error message & is making changes
   useEffect(() => {
     setErrMsg("");
   }, [email, pwd, matchPwd]);
