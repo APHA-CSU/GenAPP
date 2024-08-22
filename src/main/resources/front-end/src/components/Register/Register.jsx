@@ -38,7 +38,7 @@ const Register = () => {
 
   //Validate email by testing against EMAIL_REGEX
   useEffect(() => {
-    setValidEmail(EMAIL_REGEX.test(email));
+    setValidEmail(EMAIL_REGEX.test(email.toLowerCase()));
   }, [email]);
 
   //Validate pwd by testing against PWD_REGEX
@@ -51,6 +51,19 @@ const Register = () => {
   useEffect(() => {
     setErrMsg("");
   }, [email, pwd, matchPwd]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    //If button enabled with hacking check valid email & pwd
+    const v1 = EMAIL_REGEX.test(email);
+    const v2 = PWD_REGEX.test(pwd);
+
+    if (!v1 || !v2) {
+      setErrMsg("Invalid Entry");
+      return;
+    }
+  };
 
   return (
     <div>
@@ -69,7 +82,39 @@ const Register = () => {
               {errMsg}
             </p>
             <h1>Register</h1>
-            <form></form>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="email">
+                Email:
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  className={validEmail ? "valid" : "hide"}
+                />
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  className={validEmail || !email ? "hide" : "invalid"}
+                />
+              </label>
+              <input
+                type="text"
+                id="email"
+                ref={emailRef}
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
+                onFocus={() => setEmailFocus(true)}
+                onBlur={() => setEmailFocus(false)}
+              />
+              <p
+                className={
+                  emailFocus && email && !validEmail
+                    ? "instructions"
+                    : "offscreen"
+                }
+              >
+                <FontAwesomeIcon icon={faInfoCircle} />
+                Please enter a valid organisation email.
+              </p>
+            </form>
           </section>
         </Grid>
       </Grid>
