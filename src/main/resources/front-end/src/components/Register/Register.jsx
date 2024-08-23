@@ -105,6 +105,7 @@ const Register = () => {
                 onBlur={() => setEmailFocus(false)}
               />
               <p
+                id="emailnote"
                 className={
                   emailFocus && email && !validEmail
                     ? "instructions"
@@ -147,6 +148,34 @@ const Register = () => {
                 Allowed special characters: <span>!</span> <span>@</span>{" "}
                 <span>#</span> <span>$</span> <span>%</span>
               </p>
+              <label htmlFor="confirm_pwd">
+                Confirm Password:
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  className={validMatch && matchPwd ? "valid" : "hide"}
+                />
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  className={validMatch || !matchPwd ? "hide" : "invalid"}
+                />
+              </label>
+              <input
+                type="password"
+                id="confirm_pwd"
+                onChange={(e) => setMatchPwd(e.target.value)}
+                value={matchPwd}
+                required
+                onFocus={() => setMatchFocus(true)}
+                onBlur={() => setMatchFocus(false)}
+              />
+              <p
+                id="confirmnote"
+                className={
+                  matchFocus && !validMatch ? "instructions" : "offscreen"
+                }
+              ></p>
+              <FontAwesomeIcon icon={faInfoCircle} />
+              Must match the first password input field.
             </form>
           </section>
         </Grid>
