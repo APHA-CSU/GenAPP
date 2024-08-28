@@ -47,3 +47,7 @@
 .instructions > svg {
   margin-right: 0.25rem;
 }
+
+.line {
+  display: inline-block;
+}
