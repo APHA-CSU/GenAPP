@@ -105,6 +105,7 @@ const Register = () => {
                 onBlur={() => setEmailFocus(false)}
               />
               <p
+                id="emailnote"
                 className={
                   emailFocus && email && !validEmail
                     ? "instructions"
@@ -114,6 +115,67 @@ const Register = () => {
                 <FontAwesomeIcon icon={faInfoCircle} />
                 Please enter a valid organisation email.
               </p>
+              <label htmlFor="password">
+                Password:
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  className={validPwd ? "valid" : "hide"}
+                />
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  className={validPwd || !pwd ? "hide" : "invalid"}
+                />
+              </label>
+              <input
+                type="password"
+                id="password"
+                onChange={(e) => setPwd(e.target.value)}
+                value={pwd}
+                required
+                onFocus={() => setPwdFocus(true)}
+                onBlur={() => setPwdFocus(false)}
+              />
+              <p
+                id="pwdnote"
+                className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
+              >
+                <FontAwesomeIcon icon={faInfoCircle} />
+                8 to 24 characters.
+                <br />
+                Must include uppercase and lowercase letters, a number and a
+                special character.
+                <br />
+                Allowed special characters: <span>!</span> <span>@</span>{" "}
+                <span>#</span> <span>$</span> <span>%</span>
+              </p>
+              <label htmlFor="confirm_pwd">
+                Confirm Password:
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  className={validMatch && matchPwd ? "valid" : "hide"}
+                />
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  className={validMatch || !matchPwd ? "hide" : "invalid"}
+                />
+              </label>
+              <input
+                type="password"
+                id="confirm_pwd"
+                onChange={(e) => setMatchPwd(e.target.value)}
+                value={matchPwd}
+                required
+                onFocus={() => setMatchFocus(true)}
+                onBlur={() => setMatchFocus(false)}
+              />
+              <p
+                id="confirmnote"
+                className={
+                  matchFocus && !validMatch ? "instructions" : "offscreen"
+                }
+              ></p>
+              <FontAwesomeIcon icon={faInfoCircle} />
+              Must match the first password input field.
             </form>
           </section>
         </Grid>
