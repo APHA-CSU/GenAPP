@@ -1,3 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+section {
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+html {
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  color: solid black;
+}
+
+label,
+button {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
 .welcomeGrid {
   padding-right: 150px !important;
   padding-left: 30px !important;
@@ -50,4 +92,40 @@
 
 .line {
   display: inline-block;
+}
+
+.page-container {
+  position: relative;
+  height: 100vh;
+}
+
+.left-half,
+.right-half {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+}
+
+.left-half {
+  left: 0;
+  background-color: rgb(139, 145, 160);
+}
+
+.right-half {
+  right: 0;
+  background-color: rgb(244, 244, 246);
+}
+
+.content-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-container {
+  height: 100%;
+  display: flex;
 }
