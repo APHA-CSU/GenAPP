@@ -84,7 +84,7 @@ const Register = () => {
             <h1 style={{ color: "#fff" }}>Welcome!</h1>
             <br />
             <h2 style={{ color: "#fff" }}>
-              GenAPP your gateway to understanding animal and plant pathogen
+              GenAPP: your gateway to understanding animal and plant pathogen
               evolution.
             </h2>
           </Grid>
@@ -200,6 +200,8 @@ const Register = () => {
                     Must match the first password input field.
                   </p>
                   <button
+                  className="govuk-button"
+                  id="btn_signup"
                     disabled={
                       !validEmail || !validPwd || !validMatch ? true : false
                     }
