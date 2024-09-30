@@ -7,6 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Grid from "@mui/material/Grid";
+import { useSelector, useDispatch } from "react-redux";
+import { setShowPage } from "../../features/securitySlice";
 
 //Validate email & password
 const EMAIL_REGEX =
@@ -14,6 +16,11 @@ const EMAIL_REGEX =
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const showRegisterPage = useSelector(
+    (state) => state.security.showRegisterPage
+  );
+
   const emailRef = useRef();
   const errRef = useRef();
 
@@ -69,14 +76,13 @@ const Register = () => {
   };
 
   return (
-    <div className="page-container">
+    <div className={showRegisterPage ? "register-container" : "hidden"}>
       <div className="left-half" />
       <div className="right-half" />
       <div className="content-container">
         <Grid
           container
           spacing={12}
-          className="register-container"
           alignItems="center"
           justifyContent="center"
         >
@@ -92,15 +98,31 @@ const Register = () => {
             {success ? (
               <section>
                 <h1>Successfully Registered</h1>
-                <p>
-                  <a href="#">Sign In</a>
-                </p>
+                <br />
+                <button
+                  id="signin-page-btn"
+                  className="govuk-button"
+                  onClick={() => {
+                    dispatch(setShowPage("login"));
+                  }}
+                >
+                  Sign In
+                </button>
               </section>
             ) : (
               <section>
                 <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
                   {errMsg}
                 </p>
+                <button
+                  id="back-btn"
+                  className="govuk-button"
+                  onClick={() => {
+                    dispatch(setShowPage("home"));
+                  }}
+                >
+                  Back
+                </button>
                 <h1>Register</h1>
                 <form onSubmit={handleSubmit}>
                   <label htmlFor="email">
@@ -200,22 +222,29 @@ const Register = () => {
                     Must match the first password input field.
                   </p>
                   <button
-                  className="govuk-button"
-                  id="btn_signup"
+                    className="govuk-button"
+                    id="btn_signup"
                     disabled={
                       !validEmail || !validPwd || !validMatch ? true : false
                     }
                   >
                     Sign Up
                   </button>
-                  <p>
-                    Already registered?
-                    <br />
-                    <span className="line">
-                      <a href="#">Sign In</a>
-                    </span>
-                  </p>
                 </form>
+                <div>
+                  <p className="signin-box">
+                    Already registered? {""}
+                    <button
+                      id="signin-page-btn"
+                      className="govuk-button"
+                      onClick={() => {
+                        dispatch(setShowPage("login"));
+                      }}
+                    >
+                      Sign in
+                    </button>
+                  </p>
+                </div>
               </section>
             )}
           </Grid>
