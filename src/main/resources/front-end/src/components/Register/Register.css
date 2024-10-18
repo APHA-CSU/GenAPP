@@ -1,0 +1,64 @@
+section {
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+html {
+  font-size: 22px;
+  color: #000;
+}
+
+label {
+  margin-top: 1rem;
+}
+
+
+.registerGrid {
+  padding-left: 1% !important;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.hide {
+  display: none;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.page-container {
+  position: relative;
+  height: 100vh;
+}
+
+
+

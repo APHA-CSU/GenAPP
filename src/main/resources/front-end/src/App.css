@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "GDS Transport", arial, sans-serif;
+}
+
+/* REGISTER, LOGIN & HOME COMPONENTS SHARED CSS */
+.content-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-half,
+.right-half {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+}
+
+.left-half {
+  left: 0;
+  background-color: rgb(139, 145, 160);
+}
+
+.right-half {
+  right: 0;
+  background-color: rgb(244, 244, 246);
+}
+
+.welcomeGrid {
+  padding-right: 150px !important;
+  padding-left: 30px !important;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.home-container,
+.login-container,
+.register-container {
+  height: 100vh;
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+input[type="text"],
+input[type="password"],
+#btn_signup,
+#btn_signin,
+textarea {
+  font-size: 22px;
+  padding: 0.25rem;
+}
+
+#btn_signup,
+#btn_signin {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(139, 145, 160);
+}
+
+#btn_signup:disabled,
+#btn_signin:disabled {
+  color: rgba(16, 16, 16, 0.3);
+  background-color: rgba(239, 239, 239, 0.3);
+  border-color: rgba(118, 118, 118, 0.3);
+}
+
+#register-page-btn,
+#signin-page-btn,
+#home-page-btn {
+  font-size: 22px;
+  background-color: rgb(244, 244, 246);
+  color: #000000 !important;
+  padding: 0 !important;
+  vertical-align: 0 !important;
+}
+
+#back-btn {
+  font-size: 20px;
+  width: 6%;
+  height: 6%;
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  background-color: rgb(139, 145, 160);
+}
+
+.signup-box,
+.signin-box {
+  margin-top: -20px;
+}
