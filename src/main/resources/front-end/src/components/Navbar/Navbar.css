@@ -1,4 +1,17 @@
 .icontext {
-    font-size: 12px;
-   
+  font-size: 12px;
+}
+
+.active {
+  font-weight: bold;
+  cursor: pointer;
+  /* background-color: var(--apha-green); */
+  /* border: none; */
+}
+
+.navbutton {
+  font-weight: bold;
+  cursor: pointer;
+  /* background-color: var(--apha-green); */
+  border: none;
 }

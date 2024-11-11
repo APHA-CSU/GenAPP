@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "../Navbar/Navbar.css";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
@@ -14,14 +14,19 @@ import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import Menu from "@mui/material/Menu";
+import { setShowPage } from "../../features/securitySlice";
 
 const Navbar = () => {
+  const activePage = useSelector((state) => state.security.activePage)
   const showRegisterPage = useSelector(
     (state) => state.security.showRegisterPage
   );
   const showLoginPage = useSelector((state) => state.security.showLoginPage);
   const showNavbar = !showRegisterPage && !showLoginPage;
+
+  const dispatch = useDispatch();
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -51,6 +56,12 @@ const Navbar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem>
+        <IconButton color="inherit">
+          <HomeOutlinedIcon fontSize="small" />
+        </IconButton>
+        <p className="icontext">Home</p>
+      </MenuItem>
       <MenuItem>
         <IconButton color="inherit">
           <AccessibilityNewOutlinedIcon fontSize="small" />
@@ -102,6 +113,31 @@ const Navbar = () => {
         <AppBar position="fixed" color="default">
           <Toolbar>
             <h1>GenAPP</h1>
+            <Box sx={{ flexGrow: 1 }} />
+            {/* Pages/ */}
+            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+              <button onClick={() => dispatch(setShowPage("home"))} className={activePage === "home" ? "active" : "navbutton"}>
+                Home
+              </button>
+              <button onClick={() => dispatch(setShowPage("about"))} className={activePage === "about" ? "active" : "navbutton"}>
+                About
+              </button>
+              <button
+                onClick={() => dispatch(setShowPage("informaticsdashboard"))} className={activePage === "informaticsdashboard" ? "active" : "navbutton"}
+              >
+                Informatics Dashboard
+              </button>
+              <button onClick={() => dispatch(setShowPage("news"))} className={activePage === "news" ? "active" : "navbutton"}>
+                News
+              </button>
+              <button onClick={() => dispatch(setShowPage("help&support"))} className={activePage === "help&support" ? "active" : "navbutton"}>
+                Help & Support
+              </button>
+              <button onClick={() => dispatch(setShowPage("upload"))} className={activePage === "upload" ? "active" : "navbutton"}>
+                Upload
+              </button>
+            </Box>
+            {/* Search Box */}
             <Box
               sx={{
                 position: "relative",
@@ -109,9 +145,9 @@ const Navbar = () => {
                 "&:hover": {
                   backgroundColor: "rgba(255, 255, 255, 0.25)",
                 },
-
                 width: "15%",
-                marginLeft: "500px",
+                marginRight: "20px",
+                marginLeft: "20px",
               }}
             >
               <IconButton
@@ -132,7 +168,7 @@ const Navbar = () => {
                 }}
               />
             </Box>
-            <Box sx={{ flexGrow: 1 }} />
+            {/* Pages/ */}
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
               {[
                 {
@@ -170,6 +206,7 @@ const Navbar = () => {
                 </Box>
               ))}
             </Box>
+            {/* Mobile Menu */}
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton onClick={handleMobileMenuOpen} color="inherit">
                 <MoreIcon fontSize="small" />
