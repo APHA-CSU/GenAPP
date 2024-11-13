@@ -16,6 +16,10 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import Menu from "@mui/material/Menu";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import TroubleshootOutlinedIcon from "@mui/icons-material/TroubleshootOutlined";
+import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
+import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import { setShowPage } from "../../features/securitySlice";
 
 const Navbar = () => {
@@ -56,42 +60,23 @@ const Navbar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton color="inherit">
-          <HomeOutlinedIcon fontSize="small" />
-        </IconButton>
-        <p className="icontext">Home</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <AccessibilityNewOutlinedIcon fontSize="small" />
-        </IconButton>
-        <p className="icontext">Accessibility</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <AutoStoriesOutlinedIcon fontSize="small" />
-        </IconButton>
-        <p className="icontext">Glossary</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <HelpOutlineOutlinedIcon fontSize="small" />
-        </IconButton>
-        <p className="icontext">Help</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <NotificationsNoneOutlinedIcon fontSize="small" />
-        </IconButton>
-        <p className="icontext">Notifications</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <PermIdentityOutlinedIcon fontSize="small" />
-        </IconButton>
-        <p className="icontext">Profile</p>
-      </MenuItem>
+      {[
+        { icon: <HomeOutlinedIcon />, label: "Home" },
+        { icon: <InfoOutlinedIcon />, label: "About" },
+        { icon: <TroubleshootOutlinedIcon />, label: "Informatics Dashboard" },
+        { icon: <NewspaperOutlinedIcon />, label: "News" },
+        { icon: <HelpOutlineOutlinedIcon />, label: "Help & Support" },
+        { icon: <FileUploadOutlinedIcon />, label: "Upload" },
+        { icon: <AccessibilityNewOutlinedIcon />, label: "Accessibility" },
+        { icon: <AutoStoriesOutlinedIcon />, label: "Glossary" },
+        { icon: <NotificationsNoneOutlinedIcon />, label: "Notifications" },
+        { icon: <PermIdentityOutlinedIcon />, label: "Profile" },
+      ].map((menuItem, index) => (
+        <MenuItem key={index}>
+          <IconButton color="inherit">{menuItem.icon}</IconButton>
+          <p className="icontext">{menuItem.label}</p>
+        </MenuItem>
+      ))}
     </Menu>
   );
   useEffect(() => {
@@ -110,7 +95,7 @@ const Navbar = () => {
   return (
     showNavbar && (
       <Box>
-        <AppBar position="fixed" color="default">
+        <AppBar position="fixed" color="white">
           <Toolbar>
             <Box sx={{ flexGrow: 0.1 }}>
               <h1>GenAPP</h1>
@@ -231,7 +216,7 @@ const Navbar = () => {
             {/* Mobile Menu */}
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton onClick={handleMobileMenuOpen} color="inherit">
-                <MoreIcon fontSize="small" />
+                <MoreIcon />
               </IconButton>
             </Box>
           </Toolbar>
