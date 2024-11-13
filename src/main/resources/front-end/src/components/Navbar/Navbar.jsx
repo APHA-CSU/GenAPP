@@ -19,7 +19,7 @@ import Menu from "@mui/material/Menu";
 import { setShowPage } from "../../features/securitySlice";
 
 const Navbar = () => {
-  const activePage = useSelector((state) => state.security.activePage)
+  const activePage = useSelector((state) => state.security.activePage);
   const showRegisterPage = useSelector(
     (state) => state.security.showRegisterPage
   );
@@ -109,47 +109,64 @@ const Navbar = () => {
 
   return (
     showNavbar && (
-      <Box sx={{ flexGrow: 1 }}>
+      <Box>
         <AppBar position="fixed" color="default">
           <Toolbar>
-            <h1>GenAPP</h1>
-            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ flexGrow: 0.1 }}>
+              <h1>GenAPP</h1>
+            </Box>
             {/* Pages/ */}
-            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
-              <button onClick={() => dispatch(setShowPage("home"))} className={activePage === "home" ? "active" : "navbutton"}>
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                gap: 0,
+                flexGrow: 1,
+                justifyContent: "space-evenly",
+              }}
+            >
+              <button
+                onClick={() => dispatch(setShowPage("home"))}
+                className={activePage === "home" ? "active" : "navbutton"}
+              >
                 Home
               </button>
-              <button onClick={() => dispatch(setShowPage("about"))} className={activePage === "about" ? "active" : "navbutton"}>
+              <button
+                onClick={() => dispatch(setShowPage("about"))}
+                className={activePage === "about" ? "active" : "navbutton"}
+              >
                 About
               </button>
               <button
-                onClick={() => dispatch(setShowPage("informaticsdashboard"))} className={activePage === "informaticsdashboard" ? "active" : "navbutton"}
+                onClick={() => dispatch(setShowPage("informaticsdashboard"))}
+                className={
+                  activePage === "informaticsdashboard" ? "active" : "navbutton"
+                }
               >
                 Informatics Dashboard
               </button>
-              <button onClick={() => dispatch(setShowPage("news"))} className={activePage === "news" ? "active" : "navbutton"}>
+              <button
+                onClick={() => dispatch(setShowPage("news"))}
+                className={activePage === "news" ? "active" : "navbutton"}
+              >
                 News
               </button>
-              <button onClick={() => dispatch(setShowPage("help&support"))} className={activePage === "help&support" ? "active" : "navbutton"}>
+              <button
+                onClick={() => dispatch(setShowPage("help&support"))}
+                className={
+                  activePage === "help&support" ? "active" : "navbutton"
+                }
+              >
                 Help & Support
               </button>
-              <button onClick={() => dispatch(setShowPage("upload"))} className={activePage === "upload" ? "active" : "navbutton"}>
+              <button
+                onClick={() => dispatch(setShowPage("upload"))}
+                className={activePage === "upload" ? "active" : "navbutton"}
+              >
                 Upload
               </button>
             </Box>
             {/* Search Box */}
-            <Box
-              sx={{
-                position: "relative",
-                backgroundColor: "rgb(142, 137, 137, 10%)",
-                "&:hover": {
-                  backgroundColor: "rgba(255, 255, 255, 0.25)",
-                },
-                width: "15%",
-                marginRight: "20px",
-                marginLeft: "20px",
-              }}
-            >
+            <Box className="navbarsearch">
               <IconButton
                 sx={{
                   height: "100%",
@@ -169,26 +186,32 @@ const Navbar = () => {
               />
             </Box>
             {/* Pages/ */}
-            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                gap: 1,
+                justifyContent: "flex-end",
+              }}
+            >
               {[
                 {
-                  icon: <AccessibilityNewOutlinedIcon fontSize="small" />,
+                  icon: <AccessibilityNewOutlinedIcon />,
                   label: "Accessibility",
                 },
                 {
-                  icon: <AutoStoriesOutlinedIcon fontSize="small" />,
+                  icon: <AutoStoriesOutlinedIcon />,
                   label: "Glossary",
                 },
                 {
-                  icon: <HelpOutlineOutlinedIcon fontSize="small" />,
+                  icon: <HelpOutlineOutlinedIcon />,
                   label: "Help",
                 },
                 {
-                  icon: <NotificationsNoneOutlinedIcon fontSize="small" />,
+                  icon: <NotificationsNoneOutlinedIcon />,
                   label: "Notifications",
                 },
                 {
-                  icon: <PermIdentityOutlinedIcon fontSize="small" />,
+                  icon: <PermIdentityOutlinedIcon />,
                   label: "Profile",
                 },
               ].map((item, index) => (
@@ -198,7 +221,6 @@ const Navbar = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    gap: 0.5,
                   }}
                 >
                   <IconButton color="inherit">{item.icon}</IconButton>
