@@ -1,0 +1,43 @@
+.icontext {
+  font-size: 10.5px;
+  font-weight: 500;
+}
+.css-1umw9bq-MuiSvgIcon-root {
+  font-size: 23px !important;
+}
+
+.navbutton {
+  background: none;
+  border: none;
+}
+
+.active,
+.navbutton {
+  font-size: 14px;
+  cursor: pointer;
+  padding-block: 2.5%;
+  padding-inline: 1%;
+  font-family: "GDS Transport", arial, sans-serif !important;
+}
+
+.navbarsearch {
+  position: relative;
+  background-color: rgba(142, 137, 137, 0.1);
+  width: 10%;
+  margin-right: 30px;
+  margin-left: 10px;
+  flex-grow: 0.4;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-input {
+  padding: 8px 8px 8px 40px;
+  font-size: 14px !important;
+  font-family: "GDS Transport", arial, sans-serif !important;
+}
+
+.navlogo img {
+  margin-top: 5%;
+  height: 60px;
+  width: 140px;
+}

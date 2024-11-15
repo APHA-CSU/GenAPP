@@ -124,7 +124,7 @@ const Register = () => {
                   Back
                 </button>
                 <h1>Register</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="register-form">
                   <label htmlFor="email">
                     Email:
                     <FontAwesomeIcon
@@ -176,6 +176,7 @@ const Register = () => {
                     required
                     onFocus={() => setPwdFocus(true)}
                     onBlur={() => setPwdFocus(false)}
+
                   />
                   <p
                     id="pwdnote"

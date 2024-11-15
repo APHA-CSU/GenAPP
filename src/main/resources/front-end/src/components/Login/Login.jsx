@@ -83,7 +83,7 @@ const Login = () => {
                   {errMsg}
                 </p>
                 <h1>Sign In</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="login-form">
                   <label htmlFor="login_email">Email:</label>
                   <input
                     id="login_email"

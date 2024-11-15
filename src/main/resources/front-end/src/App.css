@@ -64,8 +64,8 @@ body {
   display: none;
 }
 
-input[type="text"],
-input[type="password"],
+.register-form input,
+.login-form input,
 #btn_signup,
 #btn_signin,
 textarea {
@@ -110,4 +110,17 @@ textarea {
 .signup-box,
 .signin-box {
   margin-top: -20px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  padding: 2px 20px;
+  font-size: 12px;
+  background-color: #cfc9eb;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }

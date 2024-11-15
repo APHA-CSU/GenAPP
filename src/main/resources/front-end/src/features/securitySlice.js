@@ -6,9 +6,11 @@ export const securitySlice = createSlice({
     showHomePage: true,
     showRegisterPage: false,
     showLoginPage: false,
+    activePage: "home",
   },
   reducers: {
     setShowPage: (state, action) => {
+      state.activePage = action.payload;
       state.showHomePage = false;
       state.showRegisterPage = false;
       state.showLoginPage = false;
