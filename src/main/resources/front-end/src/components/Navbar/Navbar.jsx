@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import genapplogo from "../../imgs/GenAPP_logo.svg"
 import "../Navbar/Navbar.css";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -97,14 +98,14 @@ const Navbar = () => {
       <Box>
         <AppBar position="fixed" color="white">
           <Toolbar>
-            <Box sx={{ flexGrow: 0.1 }}>
-              <h1>GenAPP</h1>
+            <Box className="navlogo">
+              <img src={genapplogo}/>
             </Box>
             {/* Pages/ */}
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
-                gap: 0,
+                
                 flexGrow: 1,
                 justifyContent: "space-evenly",
               }}
@@ -161,13 +162,8 @@ const Navbar = () => {
               >
                 <SearchIcon sx={{ fontSize: "25px" }} />
               </IconButton>
-              <InputBase
+              <InputBase className="navbar-input"
                 placeholder="Search…"
-                sx={{
-                  color: "inherit",
-                  padding: "8px 8px 8px 40px",
-                  fontSize: "16px",
-                }}
               />
             </Box>
             {/* Pages/ */}
@@ -186,10 +182,6 @@ const Navbar = () => {
                 {
                   icon: <AutoStoriesOutlinedIcon />,
                   label: "Glossary",
-                },
-                {
-                  icon: <HelpOutlineOutlinedIcon />,
-                  label: "Help",
                 },
                 {
                   icon: <NotificationsNoneOutlinedIcon />,
