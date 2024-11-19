@@ -29,10 +29,19 @@ const Login = () => {
   const handleSubmit = async (e) => {
     //prevents reloading of the page on form submit
     e.preventDefault();
-
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({ username: email, password: pwd }),
+    }).then((res) => {
+      if (res.ok) {
+        setSucess(true);
+      }
+    });
     setEmail("");
     setPwd("");
-    setSucess(true);
   };
   return (
     <div className={showLoginPage ? "login-container" : "hidden"}>
@@ -113,17 +122,17 @@ const Login = () => {
                   </button>
                 </form>
                 <div className="signup-box">
-              <p>
-                New user? {""}
-                <button
-                  id="register-page-btn"
-                  className="govuk-button"
-                  onClick={() => dispatch(setShowPage("register"))}
-                >
-                  Register
-                </button>
-              </p>
-            </div>
+                  <p>
+                    New user? {""}
+                    <button
+                      id="register-page-btn"
+                      className="govuk-button"
+                      onClick={() => dispatch(setShowPage("register"))}
+                    >
+                      Register
+                    </button>
+                  </p>
+                </div>
               </section>
             )}
           </Grid>
