@@ -9,16 +9,28 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-        .authorizeHttpRequests(authorize -> authorize
-        .requestMatchers("/api/**").permitAll()
-        .requestMatchers("/assets/**").permitAll()
-        .anyRequest().authenticated())
-        .formLogin(form -> form
-        .loginPage("/index.html")
-        .permitAll());
-        return http.build();
-    }
+        /**
+         * Configuration to include public endpoints and redirection to custom login
+         * page
+         * 
+         * @param http http configuration class of spring boot security
+         */
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+                http
+                                .authorizeHttpRequests(authorize -> authorize
+                                                .requestMatchers("/assets/**", "/csrf", "/user", "/authstatus")
+                                                .permitAll()
+                                                .anyRequest().authenticated())
+                                .formLogin(form -> form
+                                                .loginPage("/index.html")
+                                                .loginProcessingUrl("/login")
+                                                .failureUrl("/index.html?success=false")
+                                                .permitAll())
+                                .logout(logout -> logout.logoutUrl("/logout")
+                                                .clearAuthentication(true)
+                                                .invalidateHttpSession(true)
+                                                .permitAll());
+                return http.build();
+        }
 }
