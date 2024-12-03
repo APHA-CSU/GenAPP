@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import genapplogo from "../../imgs/GenAPP_logo.svg"
+import genapplogo from "../../imgs/GenAPP_logo.svg";
 import "../Navbar/Navbar.css";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -73,7 +73,14 @@ const Navbar = () => {
         { icon: <NotificationsNoneOutlinedIcon />, label: "Notifications" },
         { icon: <PermIdentityOutlinedIcon />, label: "Profile" },
       ].map((menuItem, index) => (
-        <MenuItem key={index}>
+        <MenuItem
+          key={index}
+          onClick={
+            menuItem.label === "Profile"
+              ? () => dispatch(setShowPage("login"))
+              : undefined
+          }
+        >
           <IconButton color="inherit">{menuItem.icon}</IconButton>
           <p className="icontext">{menuItem.label}</p>
         </MenuItem>
@@ -99,13 +106,13 @@ const Navbar = () => {
         <AppBar position="fixed" color="white">
           <Toolbar>
             <Box className="navlogo">
-              <img src={genapplogo}/>
+              <img src={genapplogo} />
             </Box>
             {/* Pages/ */}
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
-                
+
                 flexGrow: 1,
                 justifyContent: "space-evenly",
               }}
@@ -162,9 +169,7 @@ const Navbar = () => {
               >
                 <SearchIcon sx={{ fontSize: "25px" }} />
               </IconButton>
-              <InputBase className="navbar-input"
-                placeholder="Search…"
-              />
+              <InputBase className="navbar-input" placeholder="Search…" />
             </Box>
             {/* Pages/ */}
             <Box
@@ -200,7 +205,16 @@ const Navbar = () => {
                     alignItems: "center",
                   }}
                 >
-                  <IconButton color="inherit">{item.icon}</IconButton>
+                  <IconButton
+                    color="inherit"
+                    onClick={
+                      item.label === "Profile"
+                        ? () => dispatch(setShowPage("login"))
+                        : undefined
+                    }
+                  >
+                    {item.icon}
+                  </IconButton>
                   <p className="icontext">{item.label}</p>
                 </Box>
               ))}
