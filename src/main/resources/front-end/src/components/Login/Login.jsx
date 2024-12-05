@@ -17,7 +17,7 @@ const Login = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSucess] = useState(false);
 
-  //Focus on email input when component loads
+  //Focus on email input and fetches CSRF token when component loads
   useEffect(() => {
     emailRef.current.focus();
     fetch("/csrf")
@@ -35,6 +35,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     //prevents reloading of the page on form submit
     e.preventDefault();
+
+    //Springboot security requires username, password and csrf token for authentication
     fetch("/login", {
       method: "POST",
       headers: {
@@ -46,6 +48,7 @@ const Login = () => {
         _csrf: csrfToken,
       }),
     }).then(() => {
+      //get the authentication status of the user as we prevents the default redirection
       fetch("/authstatus", { method: "GET", credentials: "include" })
         .then((res) => res.json())
         .then((res) => {
@@ -111,7 +114,6 @@ const Login = () => {
                 </p>
                 <h1>Sign In</h1>
                 <form className="login-form" onSubmit={handleSubmit}>
-                  {/*method="POST" action="/login"*/}
                   <label htmlFor="login_email">Email:</label>
                   <input
                     id="login_email"
