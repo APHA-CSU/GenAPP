@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import "../Login/Login.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowPage } from "../../features/securitySlice";
