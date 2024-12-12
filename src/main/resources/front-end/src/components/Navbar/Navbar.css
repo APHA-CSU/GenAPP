@@ -2,6 +2,7 @@
   font-size: 10.5px;
   font-weight: 500;
 }
+
 .css-1umw9bq-MuiSvgIcon-root {
   font-size: 23px !important;
 }
@@ -22,7 +23,7 @@
 
 .navbarsearch {
   position: relative;
-  background-color: rgba(142, 137, 137, 0.1);
+  background-color: rgb(142 137 137 / 10%);
   width: 10%;
   margin-right: 30px;
   margin-left: 10px;

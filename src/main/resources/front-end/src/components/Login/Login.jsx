@@ -12,13 +12,19 @@ const Login = () => {
   const errRef = useRef();
 
   const [email, setEmail] = useState("");
+  const [csrfToken, setCsrfToken] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSucess] = useState(false);
 
-  //Focus on email input when component loads
+  //Focus on email input and fetches CSRF token when component loads
   useEffect(() => {
     emailRef.current.focus();
+    fetch("/csrf")
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => setCsrfToken(res["token"]));
   }, []);
 
   //Clear out error message when `email`or `pwd` changes as user  has read error message & adjusting to make changes
@@ -30,9 +36,33 @@ const Login = () => {
     //prevents reloading of the page on form submit
     e.preventDefault();
 
-    setEmail("");
-    setPwd("");
-    setSucess(true);
+    //Springboot security requires username, password and csrf token for authentication
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        username: email,
+        password: pwd,
+        _csrf: csrfToken,
+      }),
+    }).then(() => {
+      //get the authentication status of the user as we prevents the default redirection
+      fetch("/authstatus", { method: "GET", credentials: "include" })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res["status"]) {
+            setSucess(true)
+            setEmail("");
+            setPwd("");
+          }
+          else {
+            console.log("Invalid credentials")
+            //todo: Login warnings
+          }
+        });
+    });
   };
   return (
     <div className={showLoginPage ? "login-container" : "hidden"}>
@@ -83,11 +113,11 @@ const Login = () => {
                   {errMsg}
                 </p>
                 <h1>Sign In</h1>
-                <form onSubmit={handleSubmit} className="login-form">
+                <form className="login-form" onSubmit={handleSubmit}>
                   <label htmlFor="login_email">Email:</label>
                   <input
                     id="login_email"
-                    name="login_email"
+                    name="username"
                     type="text"
                     ref={emailRef}
                     autoComplete="off"
@@ -98,12 +128,13 @@ const Login = () => {
                   <label htmlFor="login_pwd">Password:</label>
                   <input
                     id="login_pwd"
-                    name="login_pwd"
+                    name="password"
                     type="password"
                     onChange={(e) => setPwd(e.target.value)}
                     value={pwd}
                     required
                   />
+                  <input type="hidden" name="_csrf" value={csrfToken} />
                   <button
                     id="btn_signin"
                     className="govuk-button"
@@ -113,17 +144,17 @@ const Login = () => {
                   </button>
                 </form>
                 <div className="signup-box">
-              <p>
-                New user? {""}
-                <button
-                  id="register-page-btn"
-                  className="govuk-button"
-                  onClick={() => dispatch(setShowPage("register"))}
-                >
-                  Register
-                </button>
-              </p>
-            </div>
+                  <p>
+                    New user? {""}
+                    <button
+                      id="register-page-btn"
+                      className="govuk-button"
+                      onClick={() => dispatch(setShowPage("register"))}
+                    >
+                      Register
+                    </button>
+                  </p>
+                </div>
               </section>
             )}
           </Grid>
