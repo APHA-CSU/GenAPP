@@ -103,7 +103,14 @@ const Navbar = () => {
   return (
     showNavbar && (
       <Box>
-        <AppBar position="fixed" color="white">
+        <AppBar
+          position="relative"
+          sx={{
+            backgroundColor: "white", 
+            color: "black", 
+            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", 
+          }}
+        >
           <Toolbar>
             <Box className="navlogo">
               <img src={genapplogo} />

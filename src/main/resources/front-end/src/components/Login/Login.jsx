@@ -55,7 +55,7 @@ const Login = () => {
           </Grid>
           <Grid item xs={8} md={4} className="loginGrid">
             <button
-              id="back-btn"
+              id="back-btn-login"
               className="govuk-button"
               onClick={() => {
                 dispatch(setShowPage("home"));
