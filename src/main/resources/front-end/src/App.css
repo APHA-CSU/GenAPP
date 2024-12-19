@@ -31,12 +31,12 @@ body {
 
 .left-half {
   left: 0;
-  background-color: rgb(139, 145, 160);
+  background-color: rgb(139 145 160);
 }
 
 .right-half {
   right: 0;
-  background-color: rgb(244, 244, 246);
+  background-color: rgb(244 244 246);
 }
 
 .welcomeGrid {
@@ -81,22 +81,22 @@ textarea {
 #btn_signin {
   margin-top: 1rem;
   padding: 0.5rem;
-  background-color: rgb(139, 145, 160);
+  background-color: rgb(139 145 160);
 }
 
 #btn_signup:disabled,
 #btn_signin:disabled {
-  color: rgba(16, 16, 16, 0.3);
-  background-color: rgba(239, 239, 239, 0.3);
-  border-color: rgba(118, 118, 118, 0.3);
+  color: rgb(16 16 16 / 30%);
+  background-color: rgb(239 239 239 / 30%);
+  border-color: rgb(118 118 118 / 30%);
 }
 
 #register-page-btn,
 #signin-page-btn,
 #home-page-btn {
   font-size: 22px;
-  background-color: rgb(244, 244, 246);
-  color: #000000 !important;
+  background-color: rgb(244 244 246);
+  color: #000 !important;
   padding: 0 !important;
   vertical-align: 0 !important;
 }
@@ -109,7 +109,7 @@ textarea {
   position: absolute;
   top: 1%;
   right: 1%;
-  background-color: rgb(139, 145, 160);
+  background-color: rgb(139 145 160);
 }
 
 .signup-box,
@@ -126,5 +126,5 @@ textarea {
   padding: 2px 20px;
   font-size: 12px;
   background-color: #cfc9eb;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -2px 5px rgb(0 0 0 / 20%);
 }
