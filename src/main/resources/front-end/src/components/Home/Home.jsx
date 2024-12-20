@@ -78,7 +78,7 @@ const Home = ({ Footer }) => {
           <Box className="other-resources">
             <b>Other resources that may be of interest...</b>
             <Box className="resources-card">
-              <p>Do you want to read more on the terms of use</p>
+              <p>Do you want to read more on the terms of use?</p>
               <button id="view-terms" className="govuk-button">
                 Terms of Service
               </button>

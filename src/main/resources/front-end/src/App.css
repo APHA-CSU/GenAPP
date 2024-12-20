@@ -56,12 +56,17 @@ body {
   position: absolute;
   left: -9999px;
 }
-
-.home-div,
 .login-container,
 .register-container {
   height: 100vh;
   position: relative;
+}
+
+.home-div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .hidden {

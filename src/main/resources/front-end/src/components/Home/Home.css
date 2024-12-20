@@ -8,6 +8,7 @@
 .home-container {
   margin-top: 2%;
   max-width: 99% !important;
+  flex: 0.66;
 }
 
 .heading-box {
@@ -30,7 +31,8 @@
 .body-box {
   margin-top: 2%;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   gap: 50px;
   font-size: 15px;
@@ -55,6 +57,7 @@
   margin-bottom: 10% !important;
   margin-top: 6%;
   font-size: 14px;
+  justify-content: center;
 }
 
 .other-resources {
@@ -131,4 +134,22 @@
   align-items: center;
   font-size: 17px;
   gap: 1%;
+}
+
+@media (max-width: 1200px) {
+  .body-card,
+  .dashboard-card,
+  .other-resources {
+    flex: 1 1 calc(50% - 50px); /* On smaller screens, each card takes 50% of the row */
+    max-width: calc(50% - 50px);
+  }
+}
+
+@media (max-width: 650px) {
+  .body-card,
+  .dashboard-card,
+  .other-resources {
+    flex: 1 1 100%; /* On very small screens, each card takes 100% of the row */
+    max-width: 100%;
+  }
 }
