@@ -20,6 +20,7 @@ const Register = () => {
   const showRegisterPage = useSelector(
     (state) => state.security.showRegisterPage
   );
+  const [csrfToken, setCsrfToken] = useState("");
 
   const emailRef = useRef();
   const errRef = useRef();
@@ -43,6 +44,11 @@ const Register = () => {
   //Focus on email input when component loads
   useEffect(() => {
     emailRef.current.focus();
+    fetch("/csrf")
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => setCsrfToken(res["token"]));
   }, []);
 
   //Validate email by testing against EMAIL_REGEX
@@ -72,6 +78,17 @@ const Register = () => {
       setErrMsg("Invalid Entry");
       return;
     }
+    fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        username: email,
+        password: pwd,
+        _csrf: csrfToken,
+      }),
+    })
     setSuccess(true);
   };
 
