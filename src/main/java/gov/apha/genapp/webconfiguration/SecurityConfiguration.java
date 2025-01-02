@@ -1,6 +1,7 @@
 package gov.apha.genapp.webconfiguration;
 
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -19,7 +20,8 @@ public class SecurityConfiguration {
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
                 http
                                 .authorizeHttpRequests(authorize -> authorize
-                                                .requestMatchers("/assets/**", "/csrf", "/user", "/authstatus")
+                                                .requestMatchers("/assets/**", "/csrf", "/user", "/authstatus",
+                                                                "/register")
                                                 .permitAll()
                                                 .anyRequest().authenticated())
                                 .formLogin(form -> form
