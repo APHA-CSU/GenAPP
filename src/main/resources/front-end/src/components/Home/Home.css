@@ -21,7 +21,8 @@
 }
 
 .heading-line {
-  background-color: #cfc9eb;
+  background: linear-gradient(90deg,#8879cd,#dac4e6,#4cb06f);
+  height: 15px;
   display: flex;
   position: relative;
   /* width: 100%; */
