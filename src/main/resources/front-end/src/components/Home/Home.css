@@ -8,7 +8,7 @@
 .home-container {
   margin-top: 2%;
   max-width: 99% !important;
-  flex: 0.66;
+  flex: 0.57;
 }
 
 .heading-box {
@@ -21,7 +21,7 @@
 }
 
 .heading-line {
-  background: linear-gradient(90deg,#8879cd,#dac4e6,#4cb06f);
+  background: linear-gradient(90deg, #8879cd, #dac4e6, #4cb06f);
   height: 15px;
   display: flex;
   position: relative;
