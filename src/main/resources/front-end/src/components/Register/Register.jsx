@@ -115,7 +115,7 @@ const Register = () => {
                   {errMsg}
                 </p>
                 <button
-                  id="back-btn"
+                  id="back-btn-register"
                   className="govuk-button"
                   onClick={() => {
                     dispatch(setShowPage("home"));

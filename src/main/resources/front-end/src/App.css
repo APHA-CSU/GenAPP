@@ -3,7 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+@media (min-width: 1200px) {
+  .css-5c1adp-MuiContainer-root {
+    max-width: none !important;
+  }
+}
 body {
   font-family: "GDS Transport", arial, sans-serif;
 }
@@ -52,12 +56,17 @@ body {
   position: absolute;
   left: -9999px;
 }
-
-.home-container,
 .login-container,
 .register-container {
   height: 100vh;
   position: relative;
+}
+
+.home-div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .hidden {
@@ -97,7 +106,8 @@ textarea {
   vertical-align: 0 !important;
 }
 
-#back-btn {
+#back-btn-register,
+#back-btn-login {
   font-size: 20px;
   width: 6%;
   height: 6%;
@@ -116,8 +126,7 @@ textarea {
   display: flex;
   align-items: center;
   gap: 15px;
-  bottom: 0;
-  position: fixed;
+  position: relative;
   width: 100%;
   padding: 2px 20px;
   font-size: 12px;

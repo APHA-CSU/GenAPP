@@ -1,6 +1,156 @@
-#register_btn, #login_btn {
-    margin-top: 1rem;
-    padding: 0.5rem;
-    background-color: rgb(139 145 160);
+#register_btn,
+#login_btn {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(139, 145, 160);
+}
+
+.home-container {
+  margin-top: 2%;
+  max-width: 99% !important;
+  flex: 0.57;
+}
+
+.heading-box {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 17px;
+}
+
+.heading-line {
+  background: linear-gradient(90deg, #8879cd, #dac4e6, #4cb06f);
+  height: 15px;
+  display: flex;
+  position: relative;
+  padding: 2px 20px;
+}
+
+.body-box {
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  font-size: 15px;
+}
+
+.body-card,
+.dashboard-card,
+.resources-card {
+  text-align: -webkit-center;
+  display: grid;
+  justify-items: center;
+  border: 1px solid #cfc9eb;
+  width: 20%;
+  height: 280px;
+  margin-bottom: 1%;
+  margin-top: 6px;
+  gap: 4%;
+}
+
+.resources-card {
+  width: 100%;
+  margin-bottom: 10% !important;
+  margin-top: 6%;
+  font-size: 14px;
+  justify-content: center;
+  padding: 5px;
+}
+
+.other-resources {
+  margin-top: -1%;
+}
+
+.dashboard-card {
+  border: 1px solid #afdbc3;
+}
+
+.img-box,
+.dashboard-img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  background-color: #cfc9eb;
+}
+
+.dashboard-img-box {
+  background-color: #afdbc3;
+}
+
+.body-card img,
+.dashboard-card img {
+  width: 120px;
+  height: auto;
+}
+
+#view-projects,
+#view-dashboard,
+#view-support,
+#view-terms,
+#view-aboutdata,
+#view-news {
+  background-color: #8778cc;
+  border: none;
+  font-size: 15px;
+  width: 40%;
+  height: 41%;
+  box-shadow: none;
+  padding-top: 5px;
+}
+
+#view-how {
+  background-color: #8778cc;
+  font-size: 15px;
+  margin-top: 2%;
+  border: none;
+  box-shadow: none;
+}
+
+#view-dashboard {
+  background-color: #4cb16e;
+}
+
+#view-terms,
+#view-aboutdata,
+#view-news {
+  width: 50%;
+  padding-bottom: 7%;
+  margin-bottom: -0% !important;
+  font-size: 14px;
+}
+
+.resources-card p {
+  padding-top: 4%;
+}
+
+.how-to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  gap: 1%;
+}
+
+@media (max-width: 1200px) {
+  .body-card,
+  .dashboard-card,
+  .other-resources {
+    flex: 1 1 calc(50% - 50px); /* On smaller screens, each card takes 50% of the row */
+    max-width: calc(50% - 50px);
   }
-  
+}
+
+@media (max-width: 650px) {
+  .body-card,
+  .dashboard-card,
+  .other-resources {
+    flex: 1 1 100%; /* On very small screens, each card takes 100% of the row */
+    max-width: 100%;
+  }
+}
