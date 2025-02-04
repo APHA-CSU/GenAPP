@@ -28,8 +28,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        Boolean enabled = user.getStatus();
+        if (enabled!= null && enabled){
         return new org.springframework.security.core.userdetails.User(user.getUsername(), 
         user.getPassword(), authorities);
-
+        }
+        else {
+            throw new UsernameNotFoundException("User is not verified");
+        }
     }
 }
