@@ -106,9 +106,10 @@ const Navbar = () => {
         <AppBar
           position="relative"
           sx={{
-            backgroundColor: "white", 
-            color: "black", 
-            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", 
+            backgroundColor: "white",
+            color: "black",
+            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+            zIndex: (theme) => theme.zIndex.drawer + 1,
           }}
         >
           <Toolbar>
@@ -145,10 +146,10 @@ const Navbar = () => {
                 Informatics Dashboard
               </button>
               <button
-                onClick={() => dispatch(setShowPage("news"))}
-                className={activePage === "news" ? "active" : "navbutton"}
+                onClick={() => dispatch(setShowPage("projects"))}
+                className={activePage === "projects" ? "active" : "navbutton"}
               >
-                News
+                Projects
               </button>
               <button
                 onClick={() => dispatch(setShowPage("help&support"))}

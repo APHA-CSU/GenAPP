@@ -1,0 +1,151 @@
+.project-div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  flex: 0.9;
+}
+
+.projects-container {
+  position: relative;
+  display: flex;
+  margin-top: 1%;
+  max-width: 99% !important;
+  flex: 1;
+  flex-direction: column;
+}
+
+/* PROJECTS SIDEBAR */
+
+.projectssidebar-h2 {
+  padding-left: 15%;
+  padding-bottom: 2%;
+}
+
+.css-1cdgy6q-MuiPaper-root-MuiDrawer-paper {
+  background-color: rgb(142 137 137 / 10%) !important;
+  position: absolute !important;
+  width: 26%;
+}
+
+.projectssidebarli {
+  background-color: white;
+  width: 87%;
+  margin-left: 10%;
+}
+
+.css-rizt0-MuiTypography-root {
+  font-size: 16px !important;
+  line-height: 1 !important;
+}
+
+.css-cfd5wn-MuiListItem-root {
+  padding-block: 4px !important;
+}
+
+.MuiListItemButton-root .MuiTouchRipple-root {
+  display: none !important;
+}
+
+.MuiListItemButton-root:hover,
+.MuiListItemButton-root:active {
+  background-color: #4cb16e !important;
+}
+
+/* SEARCH PROJECTS */
+
+.projects-box {
+  width: 76%;
+  margin-left: 25.5%;
+  height: 20%;
+}
+
+.searchprojects {
+  display: flex;
+  position: relative;
+  border: 2px solid rgba(142, 137, 137, 0.1) !important;
+  border-radius: 12px;
+  width: 45%;
+  margin-left: 10%;
+  margin-top: 2%;
+  /* flex-grow: 0.4; */
+}
+
+.project-input {
+  width: 100%;
+  padding: 8px 8px 8px 40px;
+  font-size: 13px !important;
+}
+
+.css-1abvrni-MuiButtonBase-root-MuiButton-root {
+  background-color: #8778cc !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(142, 137, 137, 0.1) !important;
+  font-family: "GDS Transport", arial, sans-serif !important;
+  font-size: 13px !important;
+  text-transform: none !important;
+  margin-right: -0.2% !important;
+  width: 32% !important;
+}
+
+.sortby {
+  display: grid;
+  font-size: 15px;
+  margin-left: auto;
+  width: 20%;
+  position: relative;
+  top: -50px;
+}
+
+.formgroup {
+  border: 3px solid rgba(142, 137, 137, 0.1);
+  border-radius: 12px !important;
+}
+
+.formgroup .css-19opgx6-MuiFormControlLabel-root {
+  margin-block: -5px;
+}
+
+.formgroup .MuiFormControlLabel-label {
+  font-size: 13px !important;
+}
+
+/* PROJECTS LIST */
+
+.projectslist-box {
+  width: 76%;
+  margin-left: 25.5%;
+  margin-bottom: 1%;
+  height: 100%;
+}
+.projectslist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-left: 2%;
+  margin-bottom: 5%;
+}
+
+.projectslist p {
+  font-size: 14px;
+}
+
+.projectcard {
+  background-color: rgb(142 137 137 / 10%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  padding-left: 10%;
+}
+
+.cardbutton {
+  display: flex;
+  justify-content: right;
+}
+
+.projectsnav .MuiPaginationItem-root {
+  font-size: 13px !important;
+}
+
+.projectsnav .css-1c5o7vy-MuiPagination-ul {
+  justify-content: center;
+}
