@@ -1,0 +1,67 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "name": "Project Alpha",
+        "access": "Public",
+        "created": "15/01/2025",
+        "author": "John Doe"
+      },
+      {
+        "id": 2,
+        "name": "Project Beta",
+        "access": "Restricted",
+        "created": "22/12/2024",
+        "author": "Jane Smith"
+      },
+      {
+        "id": 3,
+        "name": "Project Gamma",
+        "access": "Public",
+        "created": "08/11/2024",
+        "author": "Alice Johnson"
+      },
+      {
+        "id": 4,
+        "name": "Project Delta",
+        "access": "Restricted",
+        "created": "19/10/2024",
+        "author": "Bob Brown"
+      },
+      {
+        "id": 5,
+        "name": "Project Epsilon",
+        "access": "Public",
+        "created": "01/09/2024",
+        "author": "Claire White"
+      },
+      {
+        "id": 6,
+        "name": "Project Zeta",
+        "access": "Restricted",
+        "created": "28/07/2024",
+        "author": "David Black"
+      },
+      {
+        "id": 7,
+        "name": "Project Eta",
+        "access": "Public",
+        "created": "14/06/2024",
+        "author": "Emily Green"
+      },
+      {
+        "id": 8,
+        "name": "Project Theta",
+        "access": "Restricted",
+        "created": "30/05/2024",
+        "author": "Frank Blue"
+      },
+      {
+        "id": 9,
+        "name": "Project Iota",
+        "access": "Public",
+        "created": "20/04/2024",
+        "author": "Grace Pink"
+      }
+    ]
+  }  
