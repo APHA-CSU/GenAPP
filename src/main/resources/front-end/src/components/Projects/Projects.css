@@ -118,6 +118,22 @@
   margin-bottom: 1%;
   height: 100%;
 }
+
+.projectstable{
+margin-top: 40px;
+height: 75vh;
+}
+
+.projectstable .MuiDataGrid-root,
+.projectstable .css-2lyh9o-MuiButtonBase-root-MuiButton-root,
+.projectstable .MuiTablePagination-selectLabel,
+.projectstable .css-1gak8h1-MuiToolbar-root-MuiTablePagination-toolbar,
+.projectstable .MuiTablePagination-displayedRows
+ {
+  font-size: 13px !important;
+}
+
+
 .projectslist {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
