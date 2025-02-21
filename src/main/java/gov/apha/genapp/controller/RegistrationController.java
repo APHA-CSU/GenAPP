@@ -70,4 +70,18 @@ public class RegistrationController {
         }
     }
 
+    @GetMapping("email-verification")
+    public String showVerificationPage(@ModelAttribute("username") String username, Model model) {
+        User user = userService.findByUsername(username);
+        if (user == null) {
+            return "redirect:/register";
+        }
+        Boolean enabled = user.getStatus();
+        if(enabled){
+            return "redirect:/index.html"; //redirects the user to login if enabled
+        }
+        model.addAttribute("username",username);
+        return "verifyRegistration.html";
+    }
+    
 }
