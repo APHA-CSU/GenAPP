@@ -37,13 +37,16 @@ public class RegistrationController {
     
 
     @PostMapping("/register")
-    public ResponseEntity<Boolean> registerUserAccount(@RequestParam("username") String username,
-            @RequestParam("password") String password) {
+    public String registerUserAccount(@RequestParam("username") String username,
+            @RequestParam("password") String password,
+            RedirectAttributes redirectAttributes) {
         if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
-            return ResponseEntity.badRequest().body(false);
+            return "redirect:/index.html";
+            //send error message to the view acordingly
         }
         if (userService.findByUsername(username) != null) {
-            return ResponseEntity.badRequest().body(false);
+            return "redirect:/index.html";
+            //send error message to the view acordingly
         }
         User user = new User();
         user.setUsername(username);
