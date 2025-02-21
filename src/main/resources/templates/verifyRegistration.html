@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GenAPP</title>
+  </head>
+  <body>
+    <h2>Email Verification</h2>
+    <form th:action="@{/verify-registration}" method="post">
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /><br />
+      <input type="hidden" name="username" th:value="${username}" /><br />
+      <label for="verificationCode">Verification Code:</label><br />
+      <input type="text" name="verificationCode" placeholder="Enter Verification code sent to your Email"/><br /><br />
+      <button type="submit">Verify</button>
+    </form>
+  </body>
+</html>
