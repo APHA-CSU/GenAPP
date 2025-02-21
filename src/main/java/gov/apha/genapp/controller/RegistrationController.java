@@ -52,7 +52,8 @@ public class RegistrationController {
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
         userService.registerUser(user);
-        return ResponseEntity.ok(true);
+        redirectAttributes.addFlashAttribute("username",username);
+        return "redirect:/email-verification";
     }
 
     @PostMapping("/verify-registration")
