@@ -13,38 +13,40 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfiguration {
 
-        @Autowired
-        private UserDetailsServiceImpl userDetailsServiceImpl;
-        /**
-         * Configuration to include public endpoints and redirection to custom login
-         * page
-         * 
-         * @param http http configuration class of spring boot security
-         */
-        @Bean
-        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-                http
-                                .authorizeHttpRequests(authorize -> authorize
-                                                .requestMatchers("/assets/**", "/csrf", "/authstatus",
-                                                                "/register","/verify-registration")
-                                                .permitAll()
-                                                .anyRequest().authenticated())
-                                .formLogin(form -> form
-                                                .loginPage("/index.html")
-                                                .loginProcessingUrl("/login")
-                                                .failureUrl("/index.html?success=false")
-                                                .permitAll())
-                                .logout(logout -> logout.logoutUrl("/logout")
-                                                .logoutSuccessUrl("/index.html")
-                                                .clearAuthentication(true)
-                                                .invalidateHttpSession(true)
-                                                .permitAll());
-                return http.build();
-        }
+    @Autowired
+    private UserDetailsServiceImpl userDetailsServiceImpl;
 
-        @Bean
-        public PasswordEncoder passwordEncoder() {
-                return new BCryptPasswordEncoder();
-        }
+    /**
+     * Configuration to include public endpoints and redirection to custom login
+     * page
+     *
+     * @param http http configuration class of spring boot security
+     */
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers("/assets/**", "/csrf", "/authstatus",
+                        "/register", "/verify-registration",
+                        "/email-verification")
+                .permitAll()
+                .anyRequest().authenticated())
+                .formLogin(form -> form
+                .loginPage("/index.html")
+                .loginProcessingUrl("/login")
+                .failureUrl("/index.html?success=false")
+                .permitAll())
+                .logout(logout -> logout.logoutUrl("/logout")
+                .logoutSuccessUrl("/index.html")
+                .clearAuthentication(true)
+                .invalidateHttpSession(true)
+                .permitAll());
+        return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 }
