@@ -50,6 +50,7 @@ public class UserService {
         message.setTo(to);
         message.setSubject("Account Verification: GenApp");
         message.setText("Your verification code is: " + verificationCode);
+        //javaMailSender.send(message)
         System.out.println(verificationCode);
     }
 }
