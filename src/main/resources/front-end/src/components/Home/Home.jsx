@@ -49,7 +49,11 @@ const Home = ({ Footer }) => {
             </Box>
             <b> My Profile and Projects</b>
             <p>Manage your research and settings with a personalised profile</p>
-            <button id="view-projects" className="govuk-button">
+            <button
+              onClick={() => dispatch(setShowPage("projects"))}
+              id="view-projects"
+              className="govuk-button"
+            >
               View Now
             </button>
           </Box>
