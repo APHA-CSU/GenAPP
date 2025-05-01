@@ -22,13 +22,13 @@
 }
 
 .navbarsearch {
+  display: flex;
   position: relative;
   background-color: rgb(142 137 137 / 10%);
   width: 10%;
   margin-right: 30px;
   margin-left: 10px;
   flex-grow: 0.4;
-  transition: background-color 0.3s ease;
 }
 
 .navbar-input {

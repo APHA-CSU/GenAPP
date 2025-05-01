@@ -138,9 +138,9 @@ const Navbar = () => {
                 About
               </button>
               <button
-                onClick={() => dispatch(setShowPage("informaticsdashboard"))}
+                onClick={() => dispatch(setShowPage("informdashb"))}
                 className={
-                  activePage === "informaticsdashboard" ? "active" : "navbutton"
+                  activePage === "informdashb" ? "active" : "navbutton"
                 }
               >
                 Informatics Dashboard
@@ -168,14 +168,8 @@ const Navbar = () => {
             </Box>
             {/* Search Box */}
             <Box className="navbarsearch">
-              <IconButton
-                sx={{
-                  height: "100%",
-                  position: "absolute",
-                  color: "inherit",
-                }}
-              >
-                <SearchIcon sx={{ fontSize: "25px" }} />
+              <IconButton>
+                <SearchIcon/>
               </IconButton>
               <InputBase className="navbar-input" placeholder="Search…" />
             </Box>

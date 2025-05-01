@@ -65,7 +65,11 @@ const Home = ({ Footer }) => {
             <p>
               Gain insights from data and interactive maps, tables and charts
             </p>
-            <button id="view-dashboard" className="govuk-button">
+            <button
+              onClick={() => dispatch(setShowPage("informdashb"))}
+              id="view-dashboard"
+              className="govuk-button"
+            >
               View Now
             </button>
           </Box>
