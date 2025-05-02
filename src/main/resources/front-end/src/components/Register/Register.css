@@ -13,16 +13,6 @@ form {
   padding-bottom: 1rem;
 }
 
-html {
-  font-size: 22px;
-  color: #000;
-}
-
-label {
-  margin-top: 1rem;
-}
-
-
 .registerGrid {
   padding-left: 1% !important;
 }
@@ -59,6 +49,3 @@ label {
   position: relative;
   height: 100vh;
 }
-
-
-
