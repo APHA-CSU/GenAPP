@@ -22,10 +22,13 @@
   padding-bottom: 2%;
 }
 
-.css-1cdgy6q-MuiPaper-root-MuiDrawer-paper {
+.projectsdrawer {
   background-color: rgb(142 137 137 / 10%) !important;
   position: absolute !important;
-  width: 26%;
+  width: 24%;
+  margin-left: 2% !important;
+  height: 100% !important;
+  margin-top: 2% !important;
 }
 
 .projectssidebarli {
@@ -34,17 +37,13 @@
   margin-left: 10%;
 }
 
-.css-rizt0-MuiTypography-root {
-  font-size: 16px !important;
-  line-height: 1 !important;
+.projectsli-item {
+  padding-block: 0px !important;
 }
 
-.css-cfd5wn-MuiListItem-root {
-  padding-block: 4px !important;
-}
-
-.MuiListItemButton-root .MuiTouchRipple-root {
-  display: none !important;
+.projectsli {
+  font-size: 15px !important;
+  line-height: 0 !important;
 }
 
 .MuiListItemButton-root:hover,
@@ -77,7 +76,7 @@
   font-size: 13px !important;
 }
 
-.css-1abvrni-MuiButtonBase-root-MuiButton-root {
+/* .css-1abvrni-MuiButtonBase-root-MuiButton-root {
   background-color: #8778cc !important;
   border-radius: 12px !important;
   border: 1px solid rgba(142, 137, 137, 0.1) !important;
@@ -86,7 +85,7 @@
   text-transform: none !important;
   margin-right: -0.2% !important;
   width: 32% !important;
-}
+} */
 
 .sortby {
   display: grid;
@@ -102,37 +101,23 @@
   border-radius: 12px !important;
 }
 
-.formgroup .css-19opgx6-MuiFormControlLabel-root {
+/* .formgroup .css-19opgx6-MuiFormControlLabel-root {
   margin-block: -5px;
-}
+} */
 
-.formgroup .MuiFormControlLabel-label {
+/* .formgroup .MuiFormControlLabel-label {
   font-size: 13px !important;
-}
+} */
 
 /* PROJECTS LIST */
 
 .projectslist-box {
-  width: 76%;
+  width: 74.5%;
   margin-left: 25.5%;
   margin-bottom: 1%;
+  margin-top: 1%;
   height: 100%;
 }
-
-.projectstable{
-margin-top: 40px;
-height: 75vh;
-}
-
-.projectstable .MuiDataGrid-root,
-.projectstable .css-2lyh9o-MuiButtonBase-root-MuiButton-root,
-.projectstable .MuiTablePagination-selectLabel,
-.projectstable .css-1gak8h1-MuiToolbar-root-MuiTablePagination-toolbar,
-.projectstable .MuiTablePagination-displayedRows
- {
-  font-size: 13px !important;
-}
-
 
 .projectslist {
   display: grid;
@@ -158,10 +143,10 @@ height: 75vh;
   justify-content: right;
 }
 
-.projectsnav .MuiPaginationItem-root {
+/* .projectsnav .MuiPaginationItem-root {
   font-size: 13px !important;
-}
+} */
 
-.projectsnav .css-1c5o7vy-MuiPagination-ul {
+/* .projectsnav .css-1c5o7vy-MuiPagination-ul {
   justify-content: center;
-}
+} */

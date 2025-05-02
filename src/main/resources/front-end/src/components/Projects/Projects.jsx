@@ -3,11 +3,10 @@ import "../Projects/Projects.css";
 import Container from "@mui/material/Container";
 import ProjectsSidebar from "./ProjectsSidebar";
 import SearchProjects from "./SearchProjects";
-import ProjectsList from "./ProjectsList"
+import ProjectsList from "./ProjectsList";
+import Box from "@mui/material/Box";
 
-const Projects = ({
-  Footer,
-}) => {
+const Projects = ({ Footer }) => {
   const showProjectsPage = useSelector(
     (state) => state.security.showProjectsPage
   );
@@ -15,9 +14,10 @@ const Projects = ({
   return (
     <div className={showProjectsPage ? "project-div" : "hidden"}>
       <Container className="projects-container">
-        <ProjectsSidebar />
-        {/* <SearchProjects /> */}
-        <ProjectsList />
+        <Box className="heading-line"></Box>
+          <ProjectsSidebar />
+          {/* <SearchProjects /> */}
+          <ProjectsList />
       </Container>
       <Footer />
     </div>

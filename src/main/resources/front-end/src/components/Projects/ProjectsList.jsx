@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { projects } from "../../data/dummyprojectdata.json";
 const ProjectsList = () => {
-  const columns = [
+  const projectcolumns = [
     { field: "id", headerName: "ID" },
     { field: "name", headerName: "Project Name", flex: 1 },
     { field: "access", headerName: "Access", flex: 1 },
@@ -13,23 +13,17 @@ const ProjectsList = () => {
     { field: "author", headerName: "Author", flex: 1 },
   ];
   return (
-    <Box className="projectslist-box">
+    <Box >
       {/* <ProjectCard/>
       <Stack  spacing={2}>
       <Pagination className="projectsnav" count={5} variant="outlined" shape="rounded" />
     </Stack> */}
-      <Box className="projectstable">
+      <Box className="projectslist-box">
         <DataGrid
           checkboxSelection
           rows={projects}
-          columns={columns}
-          slots={{toolbar: GridToolbar}}
-          sx={{
-            '& .MuiDataGrid-root': { fontSize: '13px' },
-            '& .MuiDataGrid-columnHeaders': { fontSize: '13px' },
-            '& .MuiDataGrid-cell': { fontSize: '13px' },
-            '& .MuiDataGrid-toolbarContainer': { fontSize: '13px' } // Toolbar font size
-          }}
+          columns={projectcolumns}
+          slots={{ toolbar: GridToolbar }}
         />
       </Box>
     </Box>
