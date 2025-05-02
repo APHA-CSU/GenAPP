@@ -1,0 +1,112 @@
+{
+  "pathogens": [
+    {
+      "id": 1,
+      "hosttype": "Insect",
+      "hostspecies": "Mosquitoes",
+      "pathogen": "Dengue",
+      "type": "Virus",
+      "reference_genome": "1234567",
+      "lastupdated": "11/12/2023",
+      "views": 4,
+      "region": "Ireland",
+      "collectionYear": 2023
+    },
+    {
+      "id": 2,
+      "hosttype": "Insect",
+      "hostspecies": "Mosquitoes",
+      "pathogen": "Dengue",
+      "type": "Virus",
+      "reference_genome": "1234567",
+      "lastupdated": "11/12/2023",
+      "views": 4,
+      "region": "England",
+      "collectionYear": 2023
+    },
+    {
+      "id": 3,
+      "hosttype": "Animal",
+      "hostspecies": "Cattle",
+      "pathogen": "Bovine TB",
+      "type": "Bacteria",
+      "reference_genome": "1234567",
+      "lastupdated": "01/01/2024",
+      "views": 18,
+      "region": "Wales",
+      "collectionYear": 2024
+    },
+    {
+      "id": 4,
+      "hosttype": "Insect",
+      "hostspecies": "Sandflies",
+      "pathogen": "Leishmaniasis",
+      "type": "Parasite",
+      "reference_genome": "2345678",
+      "lastupdated": "05/02/2024",
+      "views": 12,
+      "region": "Scotland",
+      "collectionYear": 2024
+    },
+    {
+      "id": 5,
+      "hosttype": "Animal",
+      "hostspecies": "Pigs",
+      "pathogen": "Swine Flu",
+      "type": "Virus",
+      "reference_genome": "3456789",
+      "lastupdated": "17/03/2024",
+      "views": 9,
+      "region": "England",
+      "collectionYear": 2024
+    },
+    {
+      "id": 6,
+      "hosttype": "Insect",
+      "hostspecies": "Ticks",
+      "pathogen": "Lyme Disease",
+      "type": "Bacteria",
+      "reference_genome": "4567890",
+      "lastupdated": "22/03/2024",
+      "views": 5,
+      "region": "Ireland",
+      "collectionYear": 2024
+    },
+    {
+      "id": 7,
+      "hosttype": "Animal",
+      "hostspecies": "Birds",
+      "pathogen": "Avian Influenza",
+      "type": "Virus",
+      "reference_genome": "5678901",
+      "lastupdated": "03/04/2024",
+      "views": 11,
+      "region": "Wales",
+      "collectionYear": 2024
+    },
+    {
+      "id": 8,
+      "hosttype": "Insect",
+      "hostspecies": "Mosquitoes",
+      "pathogen": "Zika",
+      "type": "Virus",
+      "reference_genome": "6789012",
+      "lastupdated": "09/04/2024",
+      "views": 6,
+      "region": "Scotland",
+      "collectionYear": 2024
+    },
+    {
+      "id": 9,
+      "hosttype": "Animal",
+      "hostspecies": "Humans",
+      "pathogen": "COVID-19",
+      "type": "Virus",
+      "reference_genome": "7890123",
+      "lastupdated": "12/05/2024",
+      "views": 25,
+      "region": "England",
+      "collectionYear": 2023
+    }
+  ]
+}
