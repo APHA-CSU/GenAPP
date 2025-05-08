@@ -5,6 +5,7 @@ export const securitySlice = createSlice({
   initialState: {
     showHomePage: true,
     showProjectsPage: false,
+    showInformDashb: false,
     showRegisterPage: false,
     showLoginPage: false,
     activePage: "home",
@@ -14,6 +15,7 @@ export const securitySlice = createSlice({
       state.activePage = action.payload;
       state.showHomePage = false;
       state.showProjectsPage = false;
+      state.showInformDashb = false;
       state.showRegisterPage = false;
       state.showLoginPage = false;
       switch (action.payload) {
@@ -22,6 +24,9 @@ export const securitySlice = createSlice({
           break;
         case "projects":
           state.showProjectsPage = true;
+          break;
+          case "informdashb":
+          state.showInformDashb = true;
           break;
         case "register":
           state.showRegisterPage = true;

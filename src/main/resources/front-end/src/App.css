@@ -19,6 +19,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 22px;
 }
 
 .left-half,
@@ -73,6 +74,11 @@ body {
 textarea {
   font-size: 22px;
   padding: 0.25rem;
+}
+
+.register-form,
+.login-form label {
+  margin-top: 1rem;
 }
 
 #btn_signup,

@@ -1,0 +1,99 @@
+.informdashb-div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  flex: 0.9;
+}
+
+.informdashb-container {
+  position: relative;
+  display: flex;
+  margin-top: 1%;
+  max-width: 99% !important;
+  flex: 1;
+  flex-direction: column;
+}
+
+.informdashb-content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+/* INFORMATICS DASHBOARD HEADING */
+
+.headingcontent-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-icon img {
+  width: 150px;
+}
+.headingtext-box {
+  font-size: 17px;
+  width: 55%;
+}
+
+.headinginfo-box {
+  font-size: 14px;
+  background-color: rgb(142 137 137 / 10%);
+  width: 25%;
+  padding: 1%;
+}
+
+/* INFORMATICS DASHBOARD SIDEBAR */
+.dashbdrawer {
+  position: relative !important;
+}
+
+.dashbsidebar-h2,
+.dashbform {
+  color: #474747 !important;
+}
+
+.dashbsearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  border: 3px solid rgb(142 137 137 / 10%);
+  border-radius: 12px !important;
+  margin-block: 1%;
+}
+
+.dashb-input {
+  width: 100%;
+  font-size: 13px !important;
+  font-family: "GDS Transport", arial, sans-serif !important;
+}
+
+.dashbform {
+  margin-block: 1.5%;
+}
+
+.dashbform b {
+  font-size: 16px;
+}
+
+.dashbform .css-19opgx6-MuiFormControlLabel-root {
+  margin-block: -5px;
+}
+
+.dashbform .MuiFormControlLabel-label {
+  font-size: 15px !important;
+  font-family: "GDS Transport", arial, sans-serif !important;
+}
+
+.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+  color: #474747 !important;
+}
+
+/* INFORMATICS DASHBOARD TABLE */
+.dashbtable-box {
+  width: 100%;
+}

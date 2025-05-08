@@ -25,7 +25,13 @@ const ProjectsSidebar = () => {
   return (
     <ThemeProvider theme={theme}>
       <Box>
-        <Drawer variant="permanent" anchor="left">
+        <Drawer
+          variant="permanent"
+          anchor="left"
+          PaperProps={{
+            className: "projectsdrawer",
+          }}
+        >
           <h2 className="projectssidebar-h2">My Profile and Projects</h2>
           <div className="projectssidebarli">
             <Divider />
@@ -36,21 +42,33 @@ const ProjectsSidebar = () => {
                 { icon: <PeopleOutlineIcon />, label: "Shared with me" },
                 { icon: <DeleteOutlineIcon />, label: "Bin" },
               ].map((element, index) => (
-                <ListItem key={element.label}>
+                <ListItem key={element.label} className="projectsli-item">
                   <ListItemButton>
                     <ListItemIcon>{element.icon}</ListItemIcon>
-                    <ListItemText> {element.label}</ListItemText>
+                    <ListItemText
+                      primaryTypographyProps={{
+                        className: "projectsli",
+                      }}
+                    >
+                      {element.label}
+                    </ListItemText>
                   </ListItemButton>
                 </ListItem>
               ))}
             </List>
             <Divider />
-            <ListItem>
+            <ListItem className="projectsli-item">
               <ListItemButton>
                 <ListItemIcon>
                   <FolderOpenIcon />
                 </ListItemIcon>
-                <ListItemText>Folders</ListItemText>
+                <ListItemText
+                  primaryTypographyProps={{
+                    className: "projectsli",
+                  }}
+                >
+                  Folders
+                </ListItemText>
               </ListItemButton>
             </ListItem>
             <Divider />
@@ -59,10 +77,17 @@ const ProjectsSidebar = () => {
                 { icon: <SettingsIcon />, label: "Account Settings" },
                 { icon: <VpnKeyIcon />, label: "Sign out" },
               ].map((element, index) => (
-                <ListItem key={element.label}>
+                <ListItem key={element.label} className="projectsli-item">
                   <ListItemButton>
                     <ListItemIcon>{element.icon}</ListItemIcon>
-                    <ListItemText> {element.label}</ListItemText>
+                    <ListItemText
+                      primaryTypographyProps={{
+                        className: "projectsli",
+                      }}
+                    >
+                      {" "}
+                      {element.label}
+                    </ListItemText>
                   </ListItemButton>
                 </ListItem>
               ))}
