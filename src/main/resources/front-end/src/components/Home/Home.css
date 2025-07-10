@@ -102,8 +102,9 @@
 #view-terms,
 #view-aboutdata,
 #view-news {
-  background-color: #8778cc;
-  border: none;
+  background-color: #8778cc !important;
+  color: #fff !important;
+  border: none !important;
   font-size: 15px;
   width: 40%;
   height: 41%;

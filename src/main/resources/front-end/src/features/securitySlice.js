@@ -8,6 +8,7 @@ export const securitySlice = createSlice({
     showInformDashb: false,
     showRegisterPage: false,
     showLoginPage: false,
+    showHelpPage: false,
     activePage: "home",
   },
   reducers: {
@@ -18,6 +19,7 @@ export const securitySlice = createSlice({
       state.showInformDashb = false;
       state.showRegisterPage = false;
       state.showLoginPage = false;
+      state.showHelpPage = false;
       switch (action.payload) {
         case "home":
           state.showHomePage = true;
@@ -25,7 +27,7 @@ export const securitySlice = createSlice({
         case "projects":
           state.showProjectsPage = true;
           break;
-          case "informdashb":
+        case "informdashb":
           state.showInformDashb = true;
           break;
         case "register":
@@ -33,6 +35,9 @@ export const securitySlice = createSlice({
           break;
         case "login":
           state.showLoginPage = true;
+          break;
+        case "helppage":
+          state.showHelpPage = true;
           break;
         default:
           break;

@@ -79,7 +79,11 @@ const Home = ({ Footer }) => {
             </Box>
             <b>Help & Support</b>
             <p>Access help and support resources to maximise your experience</p>
-            <button id="view-support" className="govuk-button">
+            <button
+              onClick={() => dispatch(setShowPage("helppage"))}
+              id="view-support"
+              className="govuk-button"
+            >
               View Now
             </button>
           </Box>
