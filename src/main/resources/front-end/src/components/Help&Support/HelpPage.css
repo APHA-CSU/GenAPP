@@ -28,7 +28,6 @@
   justify-content: space-around;
   align-items: center;
   margin-top: 1%;
-  
 }
 
 .helpheadingtext {
@@ -79,12 +78,9 @@
   display: flex;
   flex-direction: column;
   margin-top: 1%;
-
-  
 }
 .intro-help-links {
   width: 30%;
-  
 }
 
 .govuk-button.contact {
@@ -110,18 +106,18 @@
   font-size: 15px;
 }
 
-.help-links{
-  display: flex; 
+.help-links {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   margin-block: 15%;
 }
 
-.helpicons{
+.helpicons {
   font-size: 40px !important;
 }
 
-.help-accordions{
+.help-accordions {
   width: 150vh !important;
 }
