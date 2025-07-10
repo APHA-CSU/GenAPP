@@ -12,7 +12,7 @@ const InformDashbHeading = () => {
           <img src={dashboard} />
         </Box>
         <Box className="headingtext-box">
-          <h2 style={{ color: "#474747" }}>Informatics Dashboard</h2>
+          <h2>Informatics Dashboard</h2>
           <br />
           <p>
             Your comprehensive tool for managing and analysing pathogen data.

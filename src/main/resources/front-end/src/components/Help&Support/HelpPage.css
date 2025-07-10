@@ -1,0 +1,127 @@
+.helpsupport-div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 1.5%;
+  flex: 0.9;
+}
+
+.helpsupport-container {
+  position: relative;
+  display: flex;
+  max-width: 99% !important;
+  flex: 1;
+  flex-direction: column;
+}
+
+.help-content {
+  margin-top: 1%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* HELP PAGE HEADING */
+
+.helpheading-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1%;
+  
+}
+
+.helpheadingtext {
+  font-size: 17px;
+  width: 80%;
+  margin-bottom: 1%;
+}
+
+.help-icon img {
+  width: 125px;
+}
+
+/* HELP PAGE SIDEBAR */
+.helpdrawer {
+  position: relative !important;
+}
+
+.helpsearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  border: 3px solid rgb(142 137 137 / 10%);
+  border-radius: 12px !important;
+  margin-block: 5%;
+}
+
+.help-input {
+  width: 100%;
+  font-size: 15px !important;
+  font-family: "GDS Transport", arial, sans-serif !important;
+}
+
+/* HELP PAGE BODY */
+
+.introbody-box,
+.instrucbody-box,
+.interpbody-box {
+  width: 100%;
+  height: 100%;
+  height: 100vh !important;
+  display: flex;
+  margin-left: 2%;
+}
+
+.intro-text {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1%;
+
+  
+}
+.intro-help-links {
+  width: 30%;
+  
+}
+
+.govuk-button.contact {
+  background-color: #8778cc !important;
+  color: #fff !important;
+  border: none !important;
+  font-size: 15px;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+  margin-bottom: 0px !important;
+  margin-top: 5%;
+}
+
+.contact-expert {
+  background-color: #cfc9eb;
+  color: #474747;
+  border-radius: 12px !important;
+  border-color: #cfc9eb;
+  margin-block: 5%;
+  padding-block: 8%;
+  margin-inline: 10%;
+  padding-inline: 10%;
+  font-size: 15px;
+}
+
+.help-links{
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: 15%;
+}
+
+.helpicons{
+  font-size: 40px !important;
+}
+
+.help-accordions{
+  width: 150vh !important;
+}
