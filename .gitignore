@@ -5,8 +5,12 @@ target/
 !**/src/test/**/target/
 megalinter-reports/
 
+## REACT FRONT END READ THE DOCS BUILD ##
+/src/main/resources/documentation/build/
+
+
 ## REACT FRONT END NODE MODULES ##
-/src/main/resources/front-end/node_modules
+/src/main/resources/front-end/node_modules/
 
 ## REACT FRONT END LOGS ##
 /src/main/resources/front-end/logs
@@ -60,3 +64,4 @@ build/
 
 ### VS Code ###
 .vscode/
+
