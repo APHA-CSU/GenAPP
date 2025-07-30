@@ -10,7 +10,14 @@ A comprehensive tool for managing and analysing pathogen data to enhance your re
 
 Click one of the links below to read more:
 
+.. - `About GenAPP <about_genapp.html>`_
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
+   about_genapp
+   faq
+   genapp-terms-of-use
+   GDPR
+   getting-started/index
+   genapp-tutorials/index
