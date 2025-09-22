@@ -63,7 +63,6 @@ const Navbar = () => {
     >
       {[
         { icon: <HomeOutlinedIcon />, label: "Home" },
-        { icon: <InfoOutlinedIcon />, label: "About" },
         { icon: <TroubleshootOutlinedIcon />, label: "Informatics Dashboard" },
         { icon: <NewspaperOutlinedIcon />, label: "News" },
         { icon: <HelpOutlineOutlinedIcon />, label: "Help & Support" },
@@ -130,12 +129,6 @@ const Navbar = () => {
                 className={activePage === "home" ? "active" : "navbutton"}
               >
                 Home
-              </button>
-              <button
-                onClick={() => dispatch(setShowPage("about"))}
-                className={activePage === "about" ? "active" : "navbutton"}
-              >
-                About
               </button>
               <button
                 onClick={() => dispatch(setShowPage("informdashb"))}
