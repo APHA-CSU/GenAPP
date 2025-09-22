@@ -5,6 +5,8 @@ target/
 !**/src/test/**/target/
 megalinter-reports/
 
+/src/main/resources/front-end/.vite/
+
 ## REACT FRONT END READ THE DOCS BUILD ##
 /src/main/resources/documentation/build/
 
