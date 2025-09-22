@@ -1,0 +1,17 @@
+.dialog {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.dialog h2 {
+  text-decoration: underline;
+}
+
+.dialog h3 {
+  margin-top: 1rem;
+}
+
+.govuk-checkboxes__item {
+  margin-left: 33%;
+  margin-top: 1rem;
+}
