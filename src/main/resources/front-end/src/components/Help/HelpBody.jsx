@@ -29,8 +29,7 @@ const HelpBody = () => {
           </p>
         </Box>
         <Box className="intro-help-links">
-          <Box className="help-links">
-            <br />
+          <div className="help-links">
             <a
               href="https://genapp.readthedocs.io/en/latest/"
               target="_blank"
@@ -39,16 +38,16 @@ const HelpBody = () => {
             >
               Documentation
             </a>
-          </Box>
-          <Box className="help-links">
+          </div>
+          <div className="help-links">
             <a className="govuk-button contact">Community Forum</a>
-          </Box>
-          <Box className="help-links">
+          </div>
+          <div className="help-links">
             <a className="govuk-button contact">Contact Us</a>
-          </Box>
-          <Box className="help-links">
+          </div>
+          <div className="help-links">
             <a className="govuk-button contact">Feedback</a>
-          </Box>
+          </div>
         </Box>
       </Box>
     </>

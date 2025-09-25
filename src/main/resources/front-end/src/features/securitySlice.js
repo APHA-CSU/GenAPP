@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const securitySlice = createSlice({
   name: "home",
   initialState: {
+    showModal: true,
     showHomePage: true,
     showProjectsPage: false,
     showInformDashb: false,
@@ -12,6 +13,9 @@ export const securitySlice = createSlice({
     activePage: "home",
   },
   reducers: {
+    hideModal: (state) => {
+      state.showModal = false;
+    },
     setShowPage: (state, action) => {
       state.activePage = action.payload;
       state.showHomePage = false;
@@ -46,6 +50,6 @@ export const securitySlice = createSlice({
   },
 });
 
-export const { setShowPage } = securitySlice.actions;
+export const { setShowPage, hideModal } = securitySlice.actions;
 
 export default securitySlice.reducer;
