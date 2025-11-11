@@ -3,19 +3,19 @@ import "../InformaticsDashboard/InformDashb.css";
 import Container from "@mui/material/Container";
 import InformDashbHeading from "./InformDashbHeading";
 import InformDashbTable from "./InformDashbTable";
-import InformDashbSidebar from "./InformDashbSidebar";
 
 const InformDashb = ({ Footer }) => {
   const showInformDashb = useSelector(
     (state) => state.security.showInformDashb
   );
 
+  if (!showInformDashb) return null;
+
   return (
-    <div className={showInformDashb ? "informdashb-div" : "hidden"}>
+    <div className="informdashb-div">
       <Container className="informdashb-container">
         <InformDashbHeading />
         <div className="informdashb-content">
-          {/* <InformDashbSidebar /> */}
           <InformDashbTable />
         </div>
       </Container>

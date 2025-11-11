@@ -3,7 +3,6 @@
   flex-direction: column;
   height: 100vh;
   margin: 0;
-  flex: 0.9;
 }
 
 .projects-container {
@@ -13,6 +12,7 @@
   max-width: 99% !important;
   flex: 1;
   flex-direction: column;
+  padding-bottom: 1.5%;
 }
 
 /* PROJECTS SIDEBAR */
@@ -27,7 +27,7 @@
   position: absolute !important;
   width: 24%;
   margin-left: 2% !important;
-  height: 100% !important;
+  height: 99% !important;
   margin-top: 2% !important;
 }
 
