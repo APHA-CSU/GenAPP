@@ -11,13 +11,15 @@ const Projects = ({ Footer }) => {
     (state) => state.security.showProjectsPage
   );
 
+  if (!showProjectsPage) return null;
+
   return (
-    <div className={showProjectsPage ? "project-div" : "hidden"}>
+    <div className="project-div">
       <Container className="projects-container">
         <Box className="heading-line"></Box>
-          <ProjectsSidebar />
-          {/* <SearchProjects /> */}
-          <ProjectsList />
+        <ProjectsSidebar />
+        {/* <SearchProjects /> */}
+        <ProjectsList />
       </Container>
       <Footer />
     </div>

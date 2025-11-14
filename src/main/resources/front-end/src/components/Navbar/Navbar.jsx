@@ -10,17 +10,13 @@ import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import AccessibilityNewOutlinedIcon from "@mui/icons-material/AccessibilityNewOutlined";
-import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import Menu from "@mui/material/Menu";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import TroubleshootOutlinedIcon from "@mui/icons-material/TroubleshootOutlined";
-import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
+import WorkIcon from "@mui/icons-material/Work";
 import { setShowPage } from "../../features/securitySlice";
 
 const Navbar = () => {
@@ -45,6 +41,23 @@ const Navbar = () => {
   };
 
   const mobileMenuId = "primary-search-account-menu-mobile";
+  const pages = [
+    { icon: <HomeOutlinedIcon />, label: "Home", page: "home" },
+    {
+      icon: <TroubleshootOutlinedIcon />,
+      label: "Informatics Dashboard",
+      page: "informdashb",
+    },
+    { icon: <WorkIcon />, label: "Projects", page: "projects" },
+    {
+      icon: <HelpOutlineOutlinedIcon />,
+      label: "Help & Support",
+      page: "helppage",
+    },
+    { icon: <FileUploadOutlinedIcon />, label: "Upload", page: "upload" },
+    { icon: <PermIdentityOutlinedIcon />, label: "Profile", page: "login" },
+  ];
+
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -61,24 +74,13 @@ const Navbar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      {[
-        { icon: <HomeOutlinedIcon />, label: "Home" },
-        { icon: <TroubleshootOutlinedIcon />, label: "Informatics Dashboard" },
-        { icon: <NewspaperOutlinedIcon />, label: "News" },
-        { icon: <HelpOutlineOutlinedIcon />, label: "Help & Support" },
-        { icon: <FileUploadOutlinedIcon />, label: "Upload" },
-        { icon: <AccessibilityNewOutlinedIcon />, label: "Accessibility" },
-        { icon: <AutoStoriesOutlinedIcon />, label: "Glossary" },
-        { icon: <NotificationsNoneOutlinedIcon />, label: "Notifications" },
-        { icon: <PermIdentityOutlinedIcon />, label: "Profile" },
-      ].map((menuItem, index) => (
+      {pages.map((menuItem) => (
         <MenuItem
-          key={index}
-          onClick={
-            menuItem.label === "Profile"
-              ? () => dispatch(setShowPage("login"))
-              : undefined
-          }
+          key={menuItem.label}
+          onClick={() => {
+            handleMobileMenuClose();
+            dispatch(setShowPage(menuItem.page));
+          }}
         >
           <IconButton color="inherit">{menuItem.icon}</IconButton>
           <p className="icontext">{menuItem.label}</p>
@@ -116,46 +118,28 @@ const Navbar = () => {
               <img src={genapplogo} />
             </Box>
             {/* Pages/ */}
+
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
-
                 flexGrow: 1,
                 justifyContent: "space-evenly",
               }}
             >
-              <button
-                onClick={() => dispatch(setShowPage("home"))}
-                className={activePage === "home" ? "active" : "navbutton"}
-              >
-                Home
-              </button>
-              <button
-                onClick={() => dispatch(setShowPage("informdashb"))}
-                className={
-                  activePage === "informdashb" ? "active" : "navbutton"
-                }
-              >
-                Informatics Dashboard
-              </button>
-              <button
-                onClick={() => dispatch(setShowPage("projects"))}
-                className={activePage === "projects" ? "active" : "navbutton"}
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => dispatch(setShowPage("helppage"))}
-                className={activePage === "helppage" ? "active" : "navbutton"}
-              >
-                Help & Support
-              </button>
-              <button
-                onClick={() => dispatch(setShowPage("upload"))}
-                className={activePage === "upload" ? "active" : "navbutton"}
-              >
-                Upload
-              </button>
+              {pages.map(
+                (element) =>
+                  element.label !== "Profile" && (
+                    <button
+                      key={element.label}
+                      onClick={() => dispatch(setShowPage(element.page))}
+                      className={
+                        activePage === element.page ? "active" : "navbutton"
+                      }
+                    >
+                      {element.label}
+                    </button>
+                  )
+              )}
             </Box>
             {/* Search Box */}
             <Box className="navbarsearch">
@@ -172,45 +156,21 @@ const Navbar = () => {
                 justifyContent: "flex-end",
               }}
             >
-              {[
-                {
-                  icon: <AccessibilityNewOutlinedIcon />,
-                  label: "Accessibility",
-                },
-                {
-                  icon: <AutoStoriesOutlinedIcon />,
-                  label: "Glossary",
-                },
-                {
-                  icon: <NotificationsNoneOutlinedIcon />,
-                  label: "Notifications",
-                },
-                {
-                  icon: <PermIdentityOutlinedIcon />,
-                  label: "Profile",
-                },
-              ].map((item, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <IconButton
+                  color="inherit"
+                  onClick={() => dispatch(setShowPage("login"))}
                 >
-                  <IconButton
-                    color="inherit"
-                    onClick={
-                      item.label === "Profile"
-                        ? () => dispatch(setShowPage("login"))
-                        : undefined
-                    }
-                  >
-                    {item.icon}
-                  </IconButton>
-                  <p className="icontext">{item.label}</p>
-                </Box>
-              ))}
+                  <PermIdentityOutlinedIcon />
+                </IconButton>
+                <p className="icontext">Profile</p>
+              </Box>
             </Box>
             {/* Mobile Menu */}
             <Box sx={{ display: { xs: "flex", md: "none" } }}>

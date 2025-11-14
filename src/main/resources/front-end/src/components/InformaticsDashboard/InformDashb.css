@@ -1,18 +1,19 @@
 .informdashb-div {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin: 0;
-  flex: 0.9;
+  flex: 1;
 }
 
 .informdashb-container {
   position: relative;
   display: flex;
-  margin-top: 1%;
+  margin-top: 1% !important;
   max-width: 99% !important;
   flex: 1;
-  flex-direction: column;
+  flex-direction: column !important;
+  margin: 0;
+  padding-bottom: 1%;
 }
 
 .informdashb-content {
