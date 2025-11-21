@@ -59,6 +59,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+  			<groupId>ch.qos.logback</groupId>
+  			<artifactId>logback-core</artifactId>
+  			<version>[1.5.19,)</version>
+		</dependency>
 	</dependencies>
 
 	<build>
