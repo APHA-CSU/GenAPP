@@ -6,7 +6,8 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import genapplogo from "../../imgs/GenAPP_logo.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowPage } from "../../features/securitySlice";
 
@@ -77,180 +78,177 @@ const Register = () => {
 
   return (
     <div className={showRegisterPage ? "register-container" : "hidden"}>
-      <div className="left-half" />
-      <div className="right-half" />
-      <div className="content-container">
-        <Grid
-          container
-          spacing={12}
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Grid item xs={6} md={6} className="welcomeGrid">
-            <h1 style={{ color: "#fff" }}>Welcome!</h1>
-            <br />
-            <h2 style={{ color: "#fff" }}>
-              GenAPP: your gateway to understanding animal and plant pathogen
-              evolution.
-            </h2>
-          </Grid>
-          <Grid item xs={8} md={4} className="registerGrid">
-            {success ? (
-              <section>
-                <h1>Successfully Registered</h1>
-                <br />
-                <button
-                  id="signin-page-btn"
-                  className="govuk-button"
-                  onClick={() => {
-                    dispatch(setShowPage("login"));
-                  }}
+      <Box className="registerbox">
+        <Box className="welcomeregbox">
+          <div className="top-row-reg">
+            <button
+              id="back-btn-register"
+              className="govuk-button"
+              onClick={() => {
+                dispatch(setShowPage("home"));
+              }}
+            >
+              Back
+            </button>
+          </div>
+          <div className="middle-reg">
+            <img className="loginimg" src={genapplogo} />
+            <p className="welcomeheading">Welcome!</p>
+            <div className="genapptext">
+              <p>
+                <b>Gen</b>omics of <b>A</b>nimal and <b>P</b>lant <b>P</b>
+                athogens: your gateway to understanding animal and plant
+                pathogen evolution.
+              </p>
+            </div>
+          </div>
+        </Box>
+        <Box className="signupbox">
+          {success ? (
+            <section>
+              <h1>Successfully Registered</h1>
+              <br />
+              <button
+                id="signin-page-btn"
+                className="govuk-button"
+                onClick={() => {
+                  dispatch(setShowPage("login"));
+                }}
+              >
+                Sign In
+              </button>
+            </section>
+          ) : (
+            <section>
+              <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
+                {errMsg}
+              </p>
+              <h1>Register</h1>
+              <form onSubmit={handleSubmit} className="register-form">
+                <label htmlFor="email">
+                  Email:
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className={validEmail ? "valid" : "hide"}
+                  />
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    className={validEmail || !email ? "hide" : "invalid"}
+                  />
+                </label>
+                <input
+                  type="text"
+                  id="email"
+                  ref={emailRef}
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  required
+                  onFocus={() => setEmailFocus(true)}
+                  onBlur={() => setEmailFocus(false)}
+                />
+                <p
+                  id="emailnote"
+                  className={
+                    emailFocus && email && !validEmail
+                      ? "instructions"
+                      : "offscreen"
+                  }
                 >
-                  Sign In
-                </button>
-              </section>
-            ) : (
-              <section>
-                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
-                  {errMsg}
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  Please enter a valid organisation email.
+                </p>
+                <label htmlFor="password">
+                  Password:
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className={validPwd ? "valid" : "hide"}
+                  />
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    className={validPwd || !pwd ? "hide" : "invalid"}
+                  />
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  onChange={(e) => setPwd(e.target.value)}
+                  value={pwd}
+                  required
+                  onFocus={() => setPwdFocus(true)}
+                  onBlur={() => setPwdFocus(false)}
+                />
+                <p
+                  id="pwdnote"
+                  className={
+                    pwdFocus && !validPwd ? "instructions" : "offscreen"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  8 to 24 characters.
+                  <br />
+                  Must include uppercase and lowercase letters, a number and a
+                  special character.
+                  <br />
+                  Allowed special characters: <span>!</span> <span>@</span>{" "}
+                  <span>#</span> <span>$</span> <span>%</span>
+                </p>
+                <label htmlFor="confirm_pwd">
+                  Confirm Password:
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className={validMatch && matchPwd ? "valid" : "hide"}
+                  />
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    className={validMatch || !matchPwd ? "hide" : "invalid"}
+                  />
+                </label>
+                <input
+                  type="password"
+                  id="confirm_pwd"
+                  onChange={(e) => setMatchPwd(e.target.value)}
+                  value={matchPwd}
+                  required
+                  onFocus={() => setMatchFocus(true)}
+                  onBlur={() => setMatchFocus(false)}
+                />
+                <p
+                  id="confirmnote"
+                  className={
+                    matchFocus && !validMatch ? "instructions" : "offscreen"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  Must match the first password input field.
                 </p>
                 <button
-                  id="back-btn-register"
                   className="govuk-button"
-                  onClick={() => {
-                    dispatch(setShowPage("home"));
-                  }}
+                  id="btn_signup"
+                  disabled={
+                    !validEmail || !validPwd || !validMatch ? true : false
+                  }
                 >
-                  Back
+                  Sign Up
                 </button>
-                <h1>Register</h1>
-                <form onSubmit={handleSubmit} className="register-form">
-                  <label htmlFor="email">
-                    Email:
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={validEmail ? "valid" : "hide"}
-                    />
-                    <FontAwesomeIcon
-                      icon={faTimes}
-                      className={validEmail || !email ? "hide" : "invalid"}
-                    />
-                  </label>
-                  <input
-                    type="text"
-                    id="email"
-                    ref={emailRef}
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    required
-                    onFocus={() => setEmailFocus(true)}
-                    onBlur={() => setEmailFocus(false)}
-                  />
-                  <p
-                    id="emailnote"
-                    className={
-                      emailFocus && email && !validEmail
-                        ? "instructions"
-                        : "offscreen"
-                    }
-                  >
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                    Please enter a valid organisation email.
-                  </p>
-                  <label htmlFor="password">
-                    Password:
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={validPwd ? "valid" : "hide"}
-                    />
-                    <FontAwesomeIcon
-                      icon={faTimes}
-                      className={validPwd || !pwd ? "hide" : "invalid"}
-                    />
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    onChange={(e) => setPwd(e.target.value)}
-                    value={pwd}
-                    required
-                    onFocus={() => setPwdFocus(true)}
-                    onBlur={() => setPwdFocus(false)}
-
-                  />
-                  <p
-                    id="pwdnote"
-                    className={
-                      pwdFocus && !validPwd ? "instructions" : "offscreen"
-                    }
-                  >
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                    8 to 24 characters.
-                    <br />
-                    Must include uppercase and lowercase letters, a number and a
-                    special character.
-                    <br />
-                    Allowed special characters: <span>!</span> <span>@</span>{" "}
-                    <span>#</span> <span>$</span> <span>%</span>
-                  </p>
-                  <label htmlFor="confirm_pwd">
-                    Confirm Password:
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={validMatch && matchPwd ? "valid" : "hide"}
-                    />
-                    <FontAwesomeIcon
-                      icon={faTimes}
-                      className={validMatch || !matchPwd ? "hide" : "invalid"}
-                    />
-                  </label>
-                  <input
-                    type="password"
-                    id="confirm_pwd"
-                    onChange={(e) => setMatchPwd(e.target.value)}
-                    value={matchPwd}
-                    required
-                    onFocus={() => setMatchFocus(true)}
-                    onBlur={() => setMatchFocus(false)}
-                  />
-                  <p
-                    id="confirmnote"
-                    className={
-                      matchFocus && !validMatch ? "instructions" : "offscreen"
-                    }
-                  >
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                    Must match the first password input field.
-                  </p>
+              </form>
+              <div>
+                <p>
+                  Already registered? {""}
                   <button
+                    id="signin-page-btn"
                     className="govuk-button"
-                    id="btn_signup"
-                    disabled={
-                      !validEmail || !validPwd || !validMatch ? true : false
-                    }
+                    onClick={() => {
+                      dispatch(setShowPage("login"));
+                    }}
                   >
-                    Sign Up
+                    Sign in
                   </button>
-                </form>
-                <div>
-                  <p className="signin-box">
-                    Already registered? {""}
-                    <button
-                      id="signin-page-btn"
-                      className="govuk-button"
-                      onClick={() => {
-                        dispatch(setShowPage("login"));
-                      }}
-                    >
-                      Sign in
-                    </button>
-                  </p>
-                </div>
-              </section>
-            )}
-          </Grid>
-        </Grid>
-      </div>
+                </p>
+              </div>
+            </section>
+          )}
+        </Box>
+      </Box>
     </div>
   );
 };
