@@ -2,12 +2,18 @@ import "../Security Modal/SecurityModal.css";
 import { useSelector, useDispatch } from "react-redux";
 import { hideModal } from "../../features/securitySlice";
 import Dialog from "@mui/material/Dialog";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const SecurityModal = () => {
   const showModal = useSelector((state) => state.security.showModal);
   const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    if (showModal) {
+      window.scrollTo({ top: 0 });
+    }
+  }, [showModal]);
 
   const handleCheck = (event) => {
     setChecked(event.target.checked);
