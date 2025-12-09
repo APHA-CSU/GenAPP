@@ -1,22 +1,3 @@
-section {
-  width: 100%;
-  max-width: 420px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 1rem;
-}
-
-.registerGrid {
-  padding-left: 1% !important;
-}
-
 .valid {
   color: limegreen;
   margin-left: 0.25rem;
@@ -43,9 +24,4 @@ form {
 
 .instructions > svg {
   margin-right: 0.25rem;
-}
-
-.page-container {
-  position: relative;
-  height: 100vh;
 }

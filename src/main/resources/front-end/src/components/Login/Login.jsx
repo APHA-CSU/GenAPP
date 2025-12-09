@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from "react";
-import Grid from "@mui/material/Grid";
-import "../Login/Login.css";
+import Box from "@mui/material/Box";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowPage } from "../../features/securitySlice";
+import genapplogo from "../../imgs/GenAPP_logo.svg";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -53,12 +53,11 @@ const Login = () => {
         .then((res) => res.json())
         .then((res) => {
           if (res["status"]) {
-            setSucess(true)
+            setSucess(true);
             setEmail("");
             setPwd("");
-          }
-          else {
-            console.log("Invalid credentials")
+          } else {
+            console.log("Invalid credentials");
             //todo: Login warnings
           }
         });
@@ -66,24 +65,9 @@ const Login = () => {
   };
   return (
     <div className={showLoginPage ? "login-container" : "hidden"}>
-      <div className="left-half" />
-      <div className="right-half" />
-      <div className="content-container">
-        <Grid
-          container
-          spacing={12}
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Grid item xs={6} md={6} className="welcomeGrid">
-            <h1 style={{ color: "#fff" }}>Welcome!</h1>
-            <br />
-            <h2 style={{ color: "#fff" }}>
-              GenAPP: your gateway to understanding animal and plant pathogen
-              evolution.
-            </h2>
-          </Grid>
-          <Grid item xs={8} md={4} className="loginGrid">
+      <Box className="loginbox">
+        <Box className="welcomebox">
+          <div className="top-row">
             <button
               id="back-btn-login"
               className="govuk-button"
@@ -93,73 +77,86 @@ const Login = () => {
             >
               Back
             </button>
-            {success ? (
-              <section>
+          </div>
+          <div className="middle">
+            <img className="loginimg" src={genapplogo} />
+            <p className="welcomeheading">Welcome!</p>
+            <div className="genapptext">
+              <p>
+                <b>Gen</b>omics of <b>A</b>nimal and <b>P</b>lant <b>P</b>
+                athogens: your gateway to understanding animal and plant
+                pathogen evolution.
+              </p>
+            </div>
+          </div>
+        </Box>
+        <Box className="signinbox">
+          {success ? (
+            <section>
+              <p>
+                Successfully logged in
+                <br />
+                <button
+                  id="home-page-btn"
+                  className="govuk-button"
+                  onClick={() => dispatch(setShowPage("home"))}
+                >
+                  Go to Home
+                </button>
+              </p>
+            </section>
+          ) : (
+            <section>
+              <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
+                {errMsg}
+              </p>
+              <h1>Sign In</h1>
+              <form className="login-form" onSubmit={handleSubmit}>
+                <label htmlFor="login_email">Email:</label>
+                <input
+                  id="login_email"
+                  name="username"
+                  type="text"
+                  ref={emailRef}
+                  autoComplete="off"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  required
+                />
+                <label htmlFor="login_pwd">Password:</label>
+                <input
+                  id="login_pwd"
+                  name="password"
+                  type="password"
+                  onChange={(e) => setPwd(e.target.value)}
+                  value={pwd}
+                  required
+                />
+                <input type="hidden" name="_csrf" value={csrfToken} />
+                <button
+                  id="btn_signin"
+                  className="govuk-button"
+                  disabled={!email || !pwd ? true : false}
+                >
+                  Sign In
+                </button>
+              </form>
+              <div className="signup-box">
                 <p>
-                  Successfully logged in
-                  <br />
+                  New user? {""}
                   <button
-                    id="home-page-btn"
+                    id="register-page-btn"
                     className="govuk-button"
-                    onClick={() => dispatch(setShowPage("home"))}
+                    onClick={() => dispatch(setShowPage("register"))}
                   >
-                    Go to Home
+                    Register
                   </button>
                 </p>
-              </section>
-            ) : (
-              <section>
-                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
-                  {errMsg}
-                </p>
-                <h1>Sign In</h1>
-                <form className="login-form" onSubmit={handleSubmit}>
-                  <label htmlFor="login_email">Email:</label>
-                  <input
-                    id="login_email"
-                    name="username"
-                    type="text"
-                    ref={emailRef}
-                    autoComplete="off"
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    required
-                  />
-                  <label htmlFor="login_pwd">Password:</label>
-                  <input
-                    id="login_pwd"
-                    name="password"
-                    type="password"
-                    onChange={(e) => setPwd(e.target.value)}
-                    value={pwd}
-                    required
-                  />
-                  <input type="hidden" name="_csrf" value={csrfToken} />
-                  <button
-                    id="btn_signin"
-                    className="govuk-button"
-                    disabled={!email || !pwd ? true : false}
-                  >
-                    Sign In
-                  </button>
-                </form>
-                <div className="signup-box">
-                  <p>
-                    New user? {""}
-                    <button
-                      id="register-page-btn"
-                      className="govuk-button"
-                      onClick={() => dispatch(setShowPage("register"))}
-                    >
-                      Register
-                    </button>
-                  </p>
-                </div>
-              </section>
-            )}
-          </Grid>
-        </Grid>
-      </div>
+              </div>
+            </section>
+          )}
+        </Box>
+      </Box>
     </div>
   );
 };
